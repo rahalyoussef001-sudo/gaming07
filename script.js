@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 'tiles-survive', name: 'Tiles Survive', category: 'survival', platforms: 'Windows PC', rating: '★★★☆☆ 3.8', link: 'https://to.dordir.com/5J0D/2J1A4/', offerId: '20114', img: '', excerpt: 'Navigate rapidly collapsing platform grids, balance core resource systems, and test your split-second reflexes in this Windows simulator.', reviewText: '', featured: false }
   ];
 
-  const defaultBanner = { active: true, text: '🔥 SPECIAL EVENT: Synchronized with AfBooster! Click here to download top RPGs for free.', link: '#games-section', style: 'purple-pink' };
+  const defaultBanner = { active: true, text: '🔥 SPECIAL EVENT: Global Partner Integration! Click here to download top RPGs for free.', link: '#games-section', style: 'purple-pink' };
   const defaultPopup = { active: false, title: 'Limited Beta Invitation', text: 'Get direct developers alpha/beta download links for upcoming games like Neverness to Everness on Gaming07.', delay: 4, icon: '🔥', btnText: 'Claim Access', btnLink: 'https://to.dordir.com/5J0D/2J2B7/' };
   
   const defaultPermissions = [
@@ -600,7 +600,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     renderLogs();
 
-    // AfBooster Sync Simulation
+    // Network Sync Simulation
     const syncNetworkBtn = document.getElementById('sync-network-btn');
     const afboosterStatusDot = document.getElementById('afbooster-status-dot');
     const afboosterStatusText = document.getElementById('afbooster-status-text');
@@ -611,14 +611,14 @@ document.addEventListener('DOMContentLoaded', () => {
         syncNetworkBtn.disabled = true;
         afboosterStatusDot.style.background = 'var(--accent-purple)';
         afboosterStatusDot.style.boxShadow = '0 0 8px var(--accent-purple)';
-        afboosterStatusText.textContent = 'Synchronizing with AfBooster MCP...';
+        afboosterStatusText.textContent = 'Synchronizing with Partner MCP...';
 
         setTimeout(() => {
           syncNetworkBtn.textContent = '🔄 Sync Network';
           syncNetworkBtn.disabled = false;
           afboosterStatusDot.style.background = 'var(--accent-emerald)';
           afboosterStatusDot.style.boxShadow = '0 0 8px var(--accent-emerald)';
-          afboosterStatusText.textContent = 'AfBooster API Synced';
+          afboosterStatusText.textContent = 'Partner API Synced';
 
           // Simulate adding mock click
           mockLogs.unshift({
@@ -633,7 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const statClicks = document.getElementById('stat-clicks');
           if (statClicks) statClicks.innerHTML = `12,481 <span>+8.3%</span>`;
 
-          showToast('AfBooster campaigns synchronized successfully. 1 conversion fetched.');
+          showToast('Partner campaigns synchronized successfully. 1 conversion fetched.');
         }, 1500);
       });
     }
@@ -1206,26 +1206,26 @@ function initFooterModals() {
   const contents = {
     privacy: `
       <p><strong>Dernière mise à jour : Juillet 2026</strong></p>
-      <p>Chez AFBooster Gaming Portal (Gaming07), la protection de votre vie privée est une priorité absolue. Cette politique de confidentialité explique les types d'informations que nous collectons et comment nous les utilisons.</p>
+      <p>Chez Gaming07 Portal, la protection de votre vie privée est une priorité absolue. Cette politique de confidentialité explique les types d'informations que nous collectons et comment nous les utilisons.</p>
       
       <h4>1. Collecte des données</h4>
       <p>Nous pouvons collecter des informations fournies volontairement (comme votre nom et email lors de l'utilisation de nos formulaires ou la gestion des comptes) afin de répondre à vos demandes.</p>
       
       <h4>2. Cookies et traceurs</h4>
-      <p>Nous utilisons des cookies essentiels pour stocker vos préférences de navigation (comme le thème sombre/lumineux ou la fermeture des bannières promotionnelles). Des traceurs tiers peuvent être utilisés par les réseaux d'affiliation (comme AfBooster) pour comptabiliser les clics sur les boutons de téléchargement de jeux.</p>
+      <p>Nous utilisons des cookies essentiels pour stocker vos préférences de navigation (comme le thème sombre/lumineux ou la fermeture des bannières promotionnelles). Des traceurs tiers peuvent être utilisés par les réseaux d'affiliation partenaires pour comptabiliser les clics sur les boutons de téléchargement de jeux.</p>
       
       <h4>3. Sécurité</h4>
       <p>Toutes vos données de session et préférences restent stockées en local sur votre propre appareil (via le stockage LocalStorage). Nous ne vendons ni ne partageons aucune de vos données personnelles.</p>
     `,
     terms: `
       <p><strong>Dernière mise à jour : Juillet 2026</strong></p>
-      <p>Bienvenue sur AFBooster Gaming Portal (Gaming07). En accédant à ce site, vous acceptez nos conditions d'utilisation. Si vous ne les acceptez pas, veuillez ne pas utiliser nos services.</p>
+      <p>Bienvenue sur Gaming07 Portal. En accédant à ce site, vous acceptez nos conditions d'utilisation. Si vous ne les acceptez pas, veuillez ne pas utiliser nos services.</p>
       
       <h4>1. Propriété intellectuelle</h4>
       <p>Tout le contenu textuel, les avis de jeux, les animations et la structure du site Gaming07 sont la propriété exclusive du portail, à l'exception des médias appartenant aux éditeurs de jeux respectifs.</p>
       
       <h4>2. Liens d'affiliation</h4>
-      <p>Ce portail est affilié au réseau AfBooster. Les liens de téléchargement de jeux (boutons "Play Free") intègrent des paramètres de suivi. Cliquer sur ces liens permet de soutenir notre équipe de rédaction sans aucun frais pour vous.</p>
+      <p>Ce portail est affilié à un réseau de partenaires publicitaires. Les liens de téléchargement de jeux (boutons "Play Free") intègrent des paramètres de suivi. Cliquer sur ces liens permet de soutenir notre équipe de rédaction sans aucun frais pour vous.</p>
       
       <h4>3. Responsabilité</h4>
       <p>Les avis et analyses publiés sur ce site sont fournis à titre informatif. Nous ne garantissons pas le fonctionnement des clients de jeux tiers téléchargés via les liens d'affiliation externes.</p>

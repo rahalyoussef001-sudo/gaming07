@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming07 — Control Center</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Overlays -->
+  <div class="bg-grid"></div>
+  <div class="ambient-glow-1"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-bar">
+      <!-- Brand Logo -->
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <div class="logo-inner">G7</div>
+        </div>
+        <span class="logo-text">Gaming<span>07</span> <span style="font-size:11px; font-weight:700; color:var(--accent-purple); border: 1px solid rgba(189,0,255,0.4); padding:2px 6px; border-radius:4px; margin-left:8px; vertical-align:middle; text-transform:uppercase;">Admin</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">View Website</a>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme">☀</button>
+
+        <!-- Live Region Badge -->
+        <div class="region-indicator">
+          <span class="region-dot"></span>
+          <span id="region-label">Detecting...</span>
+        </div>
+
+        <div class="profile-btn">A</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Main Layout -->
+  <div class="admin-layout">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+      <button class="admin-menu-btn active" data-tab="overview">
+        <span>📊</span> Dashboard Overview
+      </button>
+      <button class="admin-menu-btn" data-tab="offers" id="sidebar-tab-offers">
+        <span>🎮</span> Offers & Games
+      </button>
+      <button class="admin-menu-btn" data-tab="permissions">
+        <span>🔒</span> Reviewer Permissions
+      </button>
+      <button class="admin-menu-btn" data-tab="banners">
+        <span>📣</span> Banners & Pop-ups
+      </button>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+
+      <!-- SECTION 1: DASHBOARD OVERVIEW -->
+      <section class="admin-section active" id="section-overview">
+        <div class="admin-header">
+          <div>
+            <h1>Dashboard Overview</h1>
+            <p style="color:var(--text-muted); font-size:13px; margin-top:2px;">Real-time conversions tracking and campaign optimization</p>
+          </div>
+          <!-- AfBooster Sync Actions -->
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="font-size:12.5px; color:var(--text-muted); display:flex; align-items:center; gap:8px;">
+              <span class="region-dot" id="afbooster-status-dot"></span>
+              <span id="afbooster-status-text">AfBooster API Connected</span>
+            </div>
+            <button class="btn btn-cyan btn-download" id="sync-network-btn">🔄 Sync Network</button>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="admin-stats-grid">
+          <div class="stat-card">
+            <span class="stat-label">Total Clicks</span>
+            <span class="stat-value" id="stat-clicks">12,480 <span>+8.2%</span></span>
+            <span class="stat-sub">Partner campaign click events (7 days)</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Active Campaigns</span>
+            <span class="stat-value" id="stat-campaigns">8</span>
+            <span class="stat-sub">Promoted offers and integrations</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Total Earnings</span>
+            <span class="stat-value" id="stat-earnings">$3,420.50 <span>+14.5%</span></span>
+            <span class="stat-sub">Estimated revenue from conversions</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Avg. Conversion</span>
+            <span class="stat-value" id="stat-conversion">18.5%</span>
+            <span class="stat-sub">Click-to-install success ratio</span>
+          </div>
+        </div>
+
+        <!-- Chart Grid -->
+        <div class="admin-grid-2col">
+          <!-- Click Traffic Analytics Chart -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <span>Traffic & Earnings Analytics</span>
+              <span style="font-size:11px; color:var(--text-muted); font-weight:normal;">Last 7 Days</span>
+            </div>
+            <div style="height:220px; position:relative;">
+              <svg viewBox="0 0 500 200" style="width:100%; height:100%; overflow:visible;">
+                <!-- Grid Lines -->
+                <line x1="0" y1="40" x2="500" y2="40" stroke="var(--border-color)" stroke-width="1"></line>
+                <line x1="0" y1="90" x2="500" y2="90" stroke="var(--border-color)" stroke-width="1"></line>
+                <line x1="0" y1="140" x2="500" y2="140" stroke="var(--border-color)" stroke-width="1"></line>
+                <!-- Line Chart Paths -->
+                <path d="M 0 160 Q 80 120 160 140 T 320 80 T 500 50" class="chart-path-revenue"></path>
+                <path d="M 0 180 Q 80 150 160 160 T 320 120 T 500 90" class="chart-path-clicks"></path>
+                <!-- Chart Dots -->
+                <circle cx="500" cy="50" r="5" fill="var(--accent-cyan)"></circle>
+                <circle cx="500" cy="90" r="4" fill="var(--accent-purple)"></circle>
+              </svg>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-top:16px; font-size:11px; color:var(--text-muted);">
+              <span>Monday</span>
+              <span>Wednesday</span>
+              <span>Friday</span>
+              <span>Today (Sunday)</span>
+            </div>
+          </div>
+
+          <!-- Recent conversions log -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <span>Recent Conversions Log</span>
+              <span style="font-size:11px; color:var(--accent-emerald); font-weight:bold;">Live Logs</span>
+            </div>
+            <div class="log-list" id="conversion-logs">
+              <!-- Rendered via script.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: OFFERS & GAMES MANAGER -->
+      <section class="admin-section" id="section-offers">
+        <div class="admin-header">
+          <div>
+            <h1>Offers & Games Manager</h1>
+            <p style="color:var(--text-muted); font-size:13px; margin-top:2px;">Create, update, and manage promoted gaming campaigns</p>
+          </div>
+          <button class="btn btn-cyan" id="add-offer-btn">+ Add New Offer</button>
+        </div>
+
+        <!-- Offers Table Grid -->
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Offer Image</th>
+                <th>Game / Campaign Name</th>
+                <th>Category</th>
+                <th>Platforms</th>
+                <th>Offer ID</th>
+                <th>Featured</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="offers-table-body">
+              <!-- Rendered dynamically via script.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 3: REVIEWER PERMISSIONS -->
+      <section class="admin-section" id="section-permissions">
+        <div class="admin-header">
+          <div>
+            <h1>Reviewer Permissions</h1>
+            <p style="color:var(--text-muted); font-size:13px; margin-top:2px;">Grant specific authors access to publish and edit articles</p>
+          </div>
+        </div>
+
+        <div class="permission-grid" id="reviewer-permissions-container">
+          <!-- Rendered dynamically via script.js -->
+        </div>
+      </section>
+
+      <!-- SECTION 4: BANNERS & POPUPS -->
+      <section class="admin-section" id="section-banners">
+        <div class="admin-header">
+          <div>
+            <h1>Banners & Pop-ups Configuration</h1>
+            <p style="color:var(--text-muted); font-size:13px; margin-top:2px;">Set up promotional alerts, discount highlights, and modals site-wide</p>
+          </div>
+        </div>
+
+        <div class="admin-grid-2col" style="grid-template-columns:1fr; @media(min-width:900px){grid-template-columns:1fr 1fr;}">
+          <!-- Promo Banner Settings -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <span>Site-Wide Header Banner</span>
+              <div class="toggle-container">
+                <span style="font-size:12px; color:var(--text-muted);" id="banner-active-label">Active</span>
+                <label class="switch">
+                  <input type="checkbox" id="banner-active-toggle">
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+            
+            <form id="banner-settings-form">
+              <div class="form-group">
+                <label for="banner-text">Banner Announcement Message</label>
+                <input type="text" id="banner-text" class="form-control" placeholder="⚡ Special Summer Gaming Event - Get 20% off Plarium coins!">
+              </div>
+              <div class="form-group">
+                <label for="banner-link">Banner Redirection Hyperlink</label>
+                <input type="text" id="banner-link" class="form-control" placeholder="https://to.dordir.com/5J0D/...">
+              </div>
+              <div class="form-group">
+                <label for="banner-style">Banner Color Theme</label>
+                <select id="banner-style" class="form-control">
+                  <option value="purple-pink">Purple to Pink Gradient (Default)</option>
+                  <option value="cyan-blue">Cyan to Blue Glow</option>
+                  <option value="emerald-green">Emerald Solid Alert</option>
+                  <option value="dark-gold">Dark Gold Classic</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-cyan btn-block">Save Banner Configurations</button>
+            </form>
+          </div>
+
+          <!-- Promo Pop-up Settings -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <span>Promotional Pop-up Modal</span>
+              <div class="toggle-container">
+                <span style="font-size:12px; color:var(--text-muted);" id="popup-active-label">Active</span>
+                <label class="switch">
+                  <input type="checkbox" id="popup-active-toggle">
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+            
+            <form id="popup-settings-form">
+              <div class="form-group">
+                <label for="popup-title">Pop-up Header Title</label>
+                <input type="text" id="popup-title" class="form-control" placeholder="Exclusive Beta Key Access!">
+              </div>
+              <div class="form-group">
+                <label for="popup-text">Pop-up Excerpt Text</label>
+                <textarea id="popup-text" class="form-control" rows="3" placeholder="Enter details about your promotion, campaign event, or direct invite link."></textarea>
+              </div>
+              <div class="form-control-row">
+                <div class="form-group">
+                  <label for="popup-delay">Trigger Delay (Seconds)</label>
+                  <input type="number" id="popup-delay" class="form-control" value="3" min="1" max="60">
+                </div>
+                <div class="form-group">
+                  <label for="popup-icon-select">Pop-up Graphic Icon</label>
+                  <select id="popup-icon-select" class="form-control">
+                    <option value="🎁">🎁 Gift Box</option>
+                    <option value="🔥">🔥 Hot Flame</option>
+                    <option value="⚡">⚡ Lightning Bolt</option>
+                    <option value="💎">💎 Premium Gem</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-control-row">
+                <div class="form-group">
+                  <label for="popup-btn-text">Button CTA Label</label>
+                  <input type="text" id="popup-btn-text" class="form-control" placeholder="Claim Free Access">
+                </div>
+                <div class="form-group">
+                  <label for="popup-btn-link">Button Redirection URL</label>
+                  <input type="text" id="popup-btn-link" class="form-control" placeholder="https://to.dordir.com/...">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-cyan btn-block">Save Pop-up Configurations</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container footer-content">
+      <p class="footer-disclaimer">Gaming07 Admin Control Panel is a secure gateway. Unauthorized accesses are logged and flagged.</p>
+      <p>&copy; 2026 Gaming07. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Admin Offer Add/Edit Modal -->
+  <div class="admin-modal" id="offer-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="admin-modal-content">
+      <div class="admin-modal-header">
+        <h3 id="modal-title">Add New Gaming Campaign</h3>
+        <button class="admin-modal-close" id="offer-modal-close">✕</button>
+      </div>
+      
+      <form id="offer-form">
+        <!-- Hidden field for editing target -->
+        <input type="hidden" id="offer-edit-id">
+
+        <div class="form-control-row">
+          <div class="form-group">
+            <label for="offer-name">Game Name *</label>
+            <input type="text" id="offer-name" class="form-control" required placeholder="e.g. Valorant">
+          </div>
+          <div class="form-group">
+            <label for="offer-category">Category *</label>
+            <select id="offer-category" class="form-control" required>
+              <option value="rpg">Action RPG</option>
+              <option value="strategy">MMO & Strategy</option>
+              <option value="survival">Survival</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-control-row">
+          <div class="form-group">
+            <label for="offer-platforms">Platforms Supported *</label>
+            <input type="text" id="offer-platforms" class="form-control" required placeholder="e.g. Windows · Steam">
+          </div>
+          <div class="form-group">
+            <label for="offer-rating">Rating (out of 5) / Stats</label>
+            <input type="text" id="offer-rating" class="form-control" placeholder="e.g. ★★★★☆ 4.6">
+          </div>
+        </div>
+
+        <div class="form-control-row">
+          <div class="form-group">
+            <label for="offer-link">Affiliate/Partner Link *</label>
+            <input type="url" id="offer-link" class="form-control" required placeholder="https://to.dordir.com/...">
+          </div>
+          <div class="form-group">
+            <label for="offer-id-num">AfBooster Offer ID *</label>
+            <input type="text" id="offer-id-num" class="form-control" required placeholder="e.g. 20299">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="offer-image">Card Banner Image (local path or URL)</label>
+          <input type="text" id="offer-image" class="form-control" placeholder="e.g. assets/nte_bg.png">
+        </div>
+
+        <div class="form-group">
+          <label for="offer-excerpt">Card Excerpt / Short Summary *</label>
+          <input type="text" id="offer-excerpt" class="form-control" required placeholder="Enter a brief 1-2 sentence tagline for the catalog cards.">
+        </div>
+
+        <div class="form-group">
+          <label for="offer-review-text">Review Content Markdown/HTML (for dynamic articles)</label>
+          <textarea id="offer-review-text" class="form-control" rows="6" placeholder="Write full review text here. Reviewers with permissions can write/edit this."></textarea>
+        </div>
+
+        <div class="form-group toggle-container" style="margin-top:24px;">
+          <label class="switch">
+            <input type="checkbox" id="offer-featured">
+            <span class="slider"></span>
+          </label>
+          <label for="offer-featured" style="margin-bottom:0; cursor:pointer;">Feature in Homepage Hero Slide (Maximum 4 campaigns)</label>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:30px; border-top:1px solid var(--border-color); padding-top:20px;">
+          <button type="button" class="btn btn-secondary" id="offer-form-cancel">Cancel</button>
+          <button type="submit" class="btn btn-cyan" id="offer-form-submit">Save Campaign</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Wrapper -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span id="toast-text"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

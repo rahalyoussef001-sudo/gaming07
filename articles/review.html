@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming07 — PC Game Review & Play Guide</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="ambient-glow-1"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-bar">
+      <!-- Brand Logo -->
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">
+          <div class="logo-inner">G7</div>
+        </div>
+        <span class="logo-text">Gaming<span>07</span></span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#games-section" class="nav-link">Games</a>
+        <a href="../index.html#news-section" class="nav-link">News</a>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="nav-actions">
+        <button class="search-btn" id="search-btn-header" aria-label="Search games">
+          <span>🔍</span> <span style="display:none;">Search</span> <kbd>⌘K</kbd>
+        </button>
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme">☀</button>
+        <div class="region-indicator">
+          <span class="region-dot"></span>
+          <span id="region-label">Detecting...</span>
+        </div>
+        <div class="profile-btn">G</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Header Section -->
+  <section class="article-header" id="article-header-section" style="background-size: cover; background-position: center;">
+    <div class="container">
+      <a href="../index.html" class="back-link">← Back to Portal</a>
+      <span class="hero-tag" style="background: rgba(0, 240, 255, 0.1); border-color: rgba(0, 240, 255, 0.3); color: var(--accent-cyan); box-shadow: var(--shadow-cyan);">Campaign Review</span>
+      <h1 id="header-title">PC Review & Play Guide</h1>
+      <div class="meta-info">
+        <div class="meta-item">📅 Published: July 2026</div>
+        <div class="meta-item">🎮 Platform: Windows PC</div>
+        <div class="meta-item">🔥 Status: Free-to-Play</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Layout -->
+  <div class="container article-layout">
+    <main class="article-content">
+      <h2 id="review-title" style="margin-top: 0; font-size: 32px; font-family: var(--font-display);">Review</h2>
+      
+      <!-- Review Paragraphs Content -->
+      <div id="review-content-box" style="margin-top: 24px;">
+        <!-- Filled dynamically -->
+      </div>
+
+      <div style="margin: 40px 0; text-align: center;">
+        <a href="#" class="btn btn-cyan btn-download download-link-btn" style="padding: 16px 36px; font-size: 18px; border-radius: 50px;" target="_blank">🚀 GET STARTED & PLAY FOR FREE</a>
+      </div>
+    </main>
+
+    <!-- Sidebar specs widget -->
+    <aside>
+      <div class="sidebar-widget">
+        <h3 class="widget-title">Campaign Specifications</h3>
+        <div class="widget-specs">
+          <div class="spec-line">
+            <span class="spec-label">Genre Category</span>
+            <span class="spec-value" id="spec-genre">-</span>
+          </div>
+          <div class="spec-line">
+            <span class="spec-label">Compatibility</span>
+            <span class="spec-value" id="spec-platforms">-</span>
+          </div>
+          <div class="spec-line">
+            <span class="spec-label">User Score</span>
+            <span class="spec-value" id="spec-rating">-</span>
+          </div>
+          <div class="spec-line">
+            <span class="spec-label">Campaign ID</span>
+            <span class="spec-value" id="spec-id" style="font-family: monospace;">-</span>
+          </div>
+        </div>
+        <a href="#" class="btn btn-cyan btn-block btn-download download-link-btn" target="_blank">Play Official Campaign</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+      <p class="footer-disclaimer">Disclaimer: Gaming07 is an independent game discovery and review portal. The download link is an affiliate partner tracking URL. Graphics and trademarks are properties of their respective creators.</p>
+      <p>&copy; 2026 Gaming07. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Search Modal Overlay (Ctrl+K) -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true" aria-label="Game search">
+    <div class="search-modal-content">
+      <div class="search-modal-header">
+        <span>🔍</span>
+        <input type="text" id="search-modal-input" placeholder="Search games, genres, reviews..." autocomplete="off">
+        <button class="search-close-btn" id="search-modal-close" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-modal-results" id="search-modal-results">
+        <!-- Results rendered dynamically via script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Wrapper -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span id="toast-text"></span>
+  </div>
+
+  <script src="../script.js"></script>
+
+  <!-- Inline Template Parser Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const gameId = params.get('game');
+      
+      if (!gameId) {
+        window.location.href = '../index.html';
+        return;
+      }
+
+      const offers = JSON.parse(localStorage.getItem('gaming07_offers') || '[]') || [];
+      const game = offers.find(o => o.id === gameId);
+
+      if (!game) {
+        document.getElementById('review-title').textContent = 'Review Campaign Not Found';
+        document.getElementById('review-content-box').innerHTML = `
+          <p>We could not retrieve campaign configurations for key: <strong>${gameId}</strong>.</p>
+          <a href="../index.html" class="btn btn-secondary">Return Home</a>
+        `;
+        return;
+      }
+
+      // Populate Head Title & Content
+      document.title = `${game.name} PC Review & Setup Guide | Gaming07`;
+      document.getElementById('review-title').textContent = `${game.name} PC Review`;
+      document.getElementById('header-title').textContent = `Full Review & PC Installation Guide: ${game.name}`;
+      document.getElementById('spec-genre').textContent = game.category.toUpperCase();
+      document.getElementById('spec-platforms').textContent = game.platforms;
+      document.getElementById('spec-rating').textContent = game.rating || '★★★★☆ 4.5';
+      document.getElementById('spec-id').textContent = `#${game.offerId}`;
+      
+      // Populate header section background image
+      const headerSec = document.getElementById('article-header-section');
+      if (game.img) {
+        headerSec.style.backgroundImage = `linear-gradient(to right, rgba(8, 11, 17, 0.95), rgba(8, 11, 17, 0.5)), url('../${game.img}')`;
+      } else {
+        headerSec.style.backgroundImage = `linear-gradient(to right, rgba(8, 11, 17, 0.95), rgba(8, 11, 17, 0.55)), linear-gradient(135deg, #020617 0%, #1e1b4b 100%)`;
+      }
+
+      // Set partner download links
+      document.querySelectorAll('.download-link-btn').forEach(btn => {
+        btn.href = game.link;
+        btn.dataset.offerId = game.offerId;
+        btn.dataset.gameName = game.name;
+      });
+
+      // Render review paragraphs
+      const reviewContentBox = document.getElementById('review-content-box');
+      if (game.reviewText) {
+        const paragraphs = game.reviewText.split('\n\n');
+        reviewContentBox.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+      } else {
+        reviewContentBox.innerHTML = `
+          <p class="lead">We currently do not have a published editorial review for <strong>${game.name}</strong>.</p>
+          <p>However, you can download and launch the official PC version for free using our partner link below.</p>
+          <div class="callout callout-emerald">
+            <h4>Advertorial Play Campaign</h4>
+            <p>Our reviewers have verified this download package. Play now to experience premium content instantly.</p>
+          </div>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>

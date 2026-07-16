@@ -1,0 +1,27 @@
+name: Deploy Website to cPanel
+
+on:
+  push:
+    branches:
+      - main  # Change to master if your default branch is master
+
+jobs:
+  web-deploy:
+    name: 🎉 Auto-Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+    
+    - name: 📂 Sync files to cPanel via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: public_html/  # Change to public_html/subfolder/ if deploying to a subfolder
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          gaming07_release.zip

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+
+# Sitemap
+Sitemap: https://gaming07.com/sitemap.xml

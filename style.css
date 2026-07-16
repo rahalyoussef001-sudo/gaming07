@@ -260,6 +260,26 @@ header {
   border-color: var(--border-color-hover);
 }
 
+.search-icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-btn-text {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .search-btn {
+    min-width: 180px;
+    justify-content: space-between;
+  }
+  .search-btn-text {
+    display: inline;
+  }
+}
+
 .search-btn kbd {
   background: rgba(0, 0, 0, 0.2);
   padding: 2px 6px;

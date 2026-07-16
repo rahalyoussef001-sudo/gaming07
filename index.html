@@ -34,9 +34,12 @@
 
       <!-- Action Utilities -->
       <div class="nav-actions">
-        <!-- Search Button (Ctrl+K overlay launcher) -->
         <button class="search-btn" id="search-btn-header" aria-label="Search games">
-          <span>🔍</span> <span style="display:none; @media(min-width: 640px) { display:inline; }">Search</span> <kbd>⌘K</kbd>
+          <span class="search-icon-wrapper">
+            <span>🔍</span>
+            <span class="search-btn-text">Search...</span>
+          </span>
+          <kbd>⌘K</kbd>
         </button>
 
         <!-- Theme Toggle -->
@@ -47,9 +50,6 @@
           <span class="region-dot"></span>
           <span id="region-label">Detecting...</span>
         </div>
-
-        <!-- Profile Mock Icon -->
-        <div class="profile-btn" aria-label="User Profile">G</div>
       </div>
     </div>
   </header>

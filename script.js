@@ -35,6 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Force clean outdated localStorage brand names
+  try {
+    const storedBanner = localStorage.getItem('gaming07_banner');
+    if (storedBanner && storedBanner.includes('AfBooster')) {
+      localStorage.removeItem('gaming07_banner');
+    }
+    const storedPopup = localStorage.getItem('gaming07_popup');
+    if (storedPopup && storedPopup.includes('AfBooster')) {
+      localStorage.removeItem('gaming07_popup');
+    }
+  } catch (e) {}
+
   // Ensure elements are pre-initialized in localStorage using safe helper
   safeGetJSON('gaming07_offers', defaultOffers);
   safeGetJSON('gaming07_banner', defaultBanner);

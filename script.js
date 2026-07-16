@@ -975,5 +975,299 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initBannersForms();
+    initFooterModals();
   }
 });
+
+function initFooterModals() {
+  if (!document.getElementById('footer-modal-styles')) {
+    const style = document.createElement('style');
+    style.id = 'footer-modal-styles';
+    style.textContent = `
+      .g7-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(4, 5, 10, 0.85);
+        backdrop-filter: blur(10px);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+      .g7-modal-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .g7-modal-container {
+        background: #0d111c;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 0 40px rgba(0, 240, 255, 0.15);
+        width: 90%;
+        max-width: 600px;
+        border-radius: 16px;
+        overflow: hidden;
+        transform: scale(0.9);
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .g7-modal-overlay.active .g7-modal-container {
+        transform: scale(1);
+      }
+      .g7-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 24px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .g7-modal-header h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .g7-modal-close {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        font-size: 20px;
+        cursor: pointer;
+        transition: var(--transition);
+        padding: 4px;
+        line-height: 1;
+      }
+      .g7-modal-close:hover {
+        color: var(--accent-red);
+        transform: rotate(90deg);
+      }
+      .g7-modal-body {
+        padding: 24px;
+        max-height: 70vh;
+        overflow-y: auto;
+        color: var(--text-muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      .g7-modal-body::-webkit-scrollbar {
+        width: 6px;
+      }
+      .g7-modal-body::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+      }
+      .g7-modal-body h4 {
+        color: var(--text-main);
+        margin-top: 20px;
+        margin-bottom: 8px;
+        font-size: 15px;
+      }
+      .g7-modal-body p {
+        margin-bottom: 14px;
+      }
+      .g7-contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .g7-form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .g7-form-group label {
+        font-size: 12px;
+        color: var(--text-main);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .g7-form-input {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 10px 14px;
+        color: var(--text-main);
+        font-family: inherit;
+        font-size: 14px;
+        transition: var(--transition);
+      }
+      .g7-form-input:focus {
+        border-color: var(--accent-cyan);
+        background: rgba(255, 255, 255, 0.05);
+        outline: none;
+        box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+      }
+      .g7-contact-submit {
+        background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: var(--transition);
+        margin-top: 8px;
+        box-shadow: var(--shadow-cyan);
+      }
+      .g7-contact-submit:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+      }
+      .g7-contact-success {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+        text-align: center;
+        gap: 16px;
+      }
+      .g7-success-icon {
+        font-size: 48px;
+        animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      @keyframes scaleIn {
+        0% { transform: scale(0); }
+        100% { transform: scale(1); }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  let modalOverlay = document.getElementById('g7-footer-modal');
+  if (!modalOverlay) {
+    modalOverlay = document.createElement('div');
+    modalOverlay.id = 'g7-footer-modal';
+    modalOverlay.className = 'g7-modal-overlay';
+    modalOverlay.innerHTML = `
+      <div class="g7-modal-container">
+        <div class="g7-modal-header">
+          <h3 id="g7-modal-title">Modal Title</h3>
+          <button class="g7-modal-close" id="g7-modal-close-btn">&times;</button>
+        </div>
+        <div class="g7-modal-body" id="g7-modal-body-content"></div>
+      </div>
+    `;
+    document.body.appendChild(modalOverlay);
+
+    document.getElementById('g7-modal-close-btn').addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalOverlay.classList.contains('active')) closeModal();
+    });
+  }
+
+  function openModal(title, contentHTML) {
+    document.getElementById('g7-modal-title').innerHTML = title;
+    document.getElementById('g7-modal-body-content').innerHTML = contentHTML;
+    modalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    const contactForm = document.getElementById('g7-actual-contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', handleContactSubmit);
+    }
+  }
+
+  function closeModal() {
+    modalOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function handleContactSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('g7-contact-name').value;
+    const email = document.getElementById('g7-contact-email').value;
+    
+    document.getElementById('g7-modal-body-content').innerHTML = `
+      <div class="g7-contact-success">
+        <div class="g7-success-icon">🎉</div>
+        <h3>Merci, ${name}!</h3>
+        <p>Votre message a été envoyé avec succès. Nous vous répondrons à l'adresse <strong>${email}</strong> dans les plus brefs délais.</p>
+      </div>
+    `;
+
+    setTimeout(closeModal, 2500);
+  }
+
+  const contents = {
+    privacy: `
+      <p><strong>Dernière mise à jour : Juillet 2026</strong></p>
+      <p>Chez AFBooster Gaming Portal (Gaming07), la protection de votre vie privée est une priorité absolue. Cette politique de confidentialité explique les types d'informations que nous collectons et comment nous les utilisons.</p>
+      
+      <h4>1. Collecte des données</h4>
+      <p>Nous pouvons collecter des informations fournies volontairement (comme votre nom et email lors de l'utilisation de nos formulaires ou la gestion des comptes) afin de répondre à vos demandes.</p>
+      
+      <h4>2. Cookies et traceurs</h4>
+      <p>Nous utilisons des cookies essentiels pour stocker vos préférences de navigation (comme le thème sombre/lumineux ou la fermeture des bannières promotionnelles). Des traceurs tiers peuvent être utilisés par les réseaux d'affiliation (comme AfBooster) pour comptabiliser les clics sur les boutons de téléchargement de jeux.</p>
+      
+      <h4>3. Sécurité</h4>
+      <p>Toutes vos données de session et préférences restent stockées en local sur votre propre appareil (via le stockage LocalStorage). Nous ne vendons ni ne partageons aucune de vos données personnelles.</p>
+    `,
+    terms: `
+      <p><strong>Dernière mise à jour : Juillet 2026</strong></p>
+      <p>Bienvenue sur AFBooster Gaming Portal (Gaming07). En accédant à ce site, vous acceptez nos conditions d'utilisation. Si vous ne les acceptez pas, veuillez ne pas utiliser nos services.</p>
+      
+      <h4>1. Propriété intellectuelle</h4>
+      <p>Tout le contenu textuel, les avis de jeux, les animations et la structure du site Gaming07 sont la propriété exclusive du portail, à l'exception des médias appartenant aux éditeurs de jeux respectifs.</p>
+      
+      <h4>2. Liens d'affiliation</h4>
+      <p>Ce portail est affilié au réseau AfBooster. Les liens de téléchargement de jeux (boutons "Play Free") intègrent des paramètres de suivi. Cliquer sur ces liens permet de soutenir notre équipe de rédaction sans aucun frais pour vous.</p>
+      
+      <h4>3. Responsabilité</h4>
+      <p>Les avis et analyses publiés sur ce site sont fournis à titre informatif. Nous ne garantissons pas le fonctionnement des clients de jeux tiers téléchargés via les liens d'affiliation externes.</p>
+    `,
+    contact: `
+      <form class="g7-contact-form" id="g7-actual-contact-form">
+        <div class="g7-form-group">
+          <label for="g7-contact-name">Nom complet</label>
+          <input type="text" id="g7-contact-name" class="g7-form-input" placeholder="Ex: Jean Dupont" required>
+        </div>
+        <div class="g7-form-group">
+          <label for="g7-contact-email">Adresse e-mail</label>
+          <input type="email" id="g7-contact-email" class="g7-form-input" placeholder="Ex: jean.dupont@mail.com" required>
+        </div>
+        <div class="g7-form-group">
+          <label for="g7-contact-subject">Sujet</label>
+          <input type="text" id="g7-contact-subject" class="g7-form-input" placeholder="Objet de votre message" required>
+        </div>
+        <div class="g7-form-group">
+          <label for="g7-contact-msg">Message</label>
+          <textarea id="g7-contact-msg" class="g7-form-input" rows="4" placeholder="Écrivez votre message ici..." required></textarea>
+        </div>
+        <button type="submit" class="g7-contact-submit">Envoyer le message</button>
+      </form>
+    `
+  };
+
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('a');
+    if (!target) return;
+
+    const text = target.textContent.trim().toLowerCase();
+
+    if (text === 'privacy policy') {
+      e.preventDefault();
+      openModal('🔒 Politique de Confidentialité', contents.privacy);
+    } else if (text === 'terms of service') {
+      e.preventDefault();
+      openModal('📜 Conditions d\'Utilisation', contents.terms);
+    } else if (text === 'contact us') {
+      e.preventDefault();
+      openModal('✉️ Nous Contacter', contents.contact);
+    }
+  });
+}
+

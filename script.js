@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 'tiles-survive', name: 'Tiles Survive', category: 'survival', platforms: 'Windows PC', rating: '★★★☆☆ 3.8', link: 'https://to.dordir.com/5J0D/2J1A4/', offerId: '20114', img: '', excerpt: 'Navigate rapidly collapsing platform grids, balance core resource systems, and test your split-second reflexes in this Windows simulator.', reviewText: '', featured: false }
   ];
 
-  const defaultBanner = { active: true, text: '🔥 SPECIAL EVENT: Synchronized with AfBooster! Click here to download top RPGs for free.', link: 'index.html#games-section', style: 'purple-pink' };
+  const defaultBanner = { active: true, text: '🔥 SPECIAL EVENT: Synchronized with AfBooster! Click here to download top RPGs for free.', link: '#games-section', style: 'purple-pink' };
   const defaultPopup = { active: false, title: 'Limited Beta Invitation', text: 'Get direct developers alpha/beta download links for upcoming games like Neverness to Everness on Gaming07.', delay: 4, icon: '🔥', btnText: 'Claim Access', btnLink: 'https://to.dordir.com/5J0D/2J2B7/' };
   
   const defaultPermissions = [
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const bgStyle = o.img ? `background-image: url('${o.img}');` : `background: linear-gradient(135deg, #090909 0%, #1e1b4b 100%);`;
           const badgeClass = o.category === 'rpg' ? 'badge-live' : (o.category === 'survival' ? 'badge-live' : 'badge-live');
           const isLocalReview = ['neverness-to-everness', 'arknights-endfield', 'once-human', 'where-winds-meet', 'raid-shadow-legends'].includes(o.id);
-          const reviewLink = isLocalReview ? `articles/${o.id}.html` : `articles/review.html?game=${o.id}`;
+          const reviewLink = isLocalReview ? `articles/${o.id}` : `articles/review?game=${o.id}`;
 
           slide.innerHTML = `
             <div class="carousel-bg" style="${bgStyle}"></div>
@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const badgeClass = `badge-${o.category}`;
       const isLocalReview = ['neverness-to-everness', 'arknights-endfield', 'once-human', 'where-winds-meet', 'raid-shadow-legends'].includes(o.id);
-      const reviewLink = isLocalReview ? `articles/${o.id}.html` : `articles/review.html?game=${o.id}`;
+      const reviewLink = isLocalReview ? `articles/${o.id}` : `articles/review?game=${o.id}`;
       const imageTag = o.img ? `<img src="${o.img}" alt="${o.name}" class="game-card-img" loading="lazy">` : `<div style="background: linear-gradient(135deg, #1e1b4b 0%, #022c22 100%); width:100%; height:100%;" class="game-card-img"></div>`;
       const reviewBtn = o.reviewText ? `<a href="${reviewLink}" class="btn btn-secondary">Review</a>` : `<button class="btn btn-secondary" disabled>No Review</button>`;
 
@@ -501,9 +501,9 @@ document.addEventListener('DOMContentLoaded', () => {
       
       let finalPath = '';
       if (isArticlesPath) {
-        finalPath = isLocalReview ? `${o.id}.html` : `review.html?game=${o.id}`;
+        finalPath = isLocalReview ? `${o.id}` : `review?game=${o.id}`;
       } else {
-        finalPath = isLocalReview ? `articles/${o.id}.html` : `articles/review.html?game=${o.id}`;
+        finalPath = isLocalReview ? `articles/${o.id}` : `articles/review?game=${o.id}`;
       }
       item.href = finalPath;
 

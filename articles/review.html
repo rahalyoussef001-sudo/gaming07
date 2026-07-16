@@ -14,7 +14,7 @@
   <header>
     <div class="container nav-bar">
       <!-- Brand Logo -->
-      <a href="../index.html" class="logo">
+      <a href="../" class="logo">
         <div class="logo-icon">
           <div class="logo-inner">G7</div>
         </div>
@@ -23,9 +23,9 @@
 
       <!-- Desktop Navigation -->
       <nav class="nav-links">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="../index.html#games-section" class="nav-link">Games</a>
-        <a href="../index.html#news-section" class="nav-link">News</a>
+        <a href="../" class="nav-link">Home</a>
+        <a href="../#games-section" class="nav-link">Games</a>
+        <a href="../#news-section" class="nav-link">News</a>
       </nav>
 
       <!-- Action Utilities -->
@@ -49,7 +49,7 @@
   <!-- Article Header Section -->
   <section class="article-header" id="article-header-section" style="background-size: cover; background-position: center;">
     <div class="container">
-      <a href="../index.html" class="back-link">← Back to Portal</a>
+      <a href="../" class="back-link">← Back to Portal</a>
       <span class="hero-tag" style="background: rgba(0, 240, 255, 0.1); border-color: rgba(0, 240, 255, 0.3); color: var(--accent-cyan); box-shadow: var(--shadow-cyan);">Campaign Review</span>
       <h1 id="header-title">PC Review & Play Guide</h1>
       <div class="meta-info">
@@ -106,7 +106,7 @@
   <footer>
     <div class="container footer-content">
       <div class="footer-links">
-        <a href="../index.html">Home</a>
+        <a href="../">Home</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
       </div>
@@ -144,7 +144,7 @@
       const gameId = params.get('game');
       
       if (!gameId) {
-        window.location.href = '../index.html';
+        window.location.href = '../';
         return;
       }
 
@@ -155,7 +155,7 @@
         document.getElementById('review-title').textContent = 'Review Campaign Not Found';
         document.getElementById('review-content-box').innerHTML = `
           <p>We could not retrieve campaign configurations for key: <strong>${gameId}</strong>.</p>
-          <a href="../index.html" class="btn btn-secondary">Return Home</a>
+          <a href="../" class="btn btn-secondary">Return Home</a>
         `;
         return;
       }

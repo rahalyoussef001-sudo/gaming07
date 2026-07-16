@@ -20,6 +20,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: public_html/  # Change to public_html/subfolder/ if deploying to a subfolder
+        protocol: ftp
         exclude: |
           **/.git*
           **/.git*/**

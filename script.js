@@ -1036,6 +1036,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initBannersForms();
   }
 
+  initLanguageSelector();
   initFooterModals();
 });
 
@@ -1328,5 +1329,72 @@ function initFooterModals() {
       openModal('✉️ Nous Contacter', contents.contact);
     }
   });
+}
+
+function initLanguageSelector() {
+  if (!document.getElementById('google_translate_element')) {
+    const div = document.createElement('div');
+    div.id = 'google_translate_element';
+    div.style.display = 'none';
+    document.body.appendChild(div);
+  }
+
+  window.googleTranslateElementInit = function() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      autoDisplay: false
+    }, 'google_translate_element');
+  };
+
+  if (!document.getElementById('google-translate-script')) {
+    const script = document.createElement('script');
+    script.id = 'google-translate-script';
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.head.appendChild(script);
+  }
+
+  document.addEventListener('click', (e) => {
+    const targetLink = e.target.closest('.lang-dropdown a');
+    if (targetLink) {
+      e.preventDefault();
+      const lang = targetLink.getAttribute('data-lang');
+      translatePage(lang);
+    }
+  });
+
+  const savedLang = localStorage.getItem('g7_selected_lang');
+  if (savedLang) {
+    translatePage(savedLang);
+  } else {
+    const userLang = (navigator.language || navigator.userLanguage).substring(0, 2);
+    const supportedLangs = ['fr', 'es', 'de', 'it', 'ar', 'pt', 'ja', 'ko'];
+    if (supportedLangs.includes(userLang) && userLang !== 'en') {
+      translatePage(userLang);
+    }
+  }
+}
+
+function translatePage(langCode) {
+  let attempts = 0;
+  const checkInterval = setInterval(() => {
+    const selectEl = document.querySelector('.goog-te-combo');
+    attempts++;
+    if (selectEl) {
+      clearInterval(checkInterval);
+      selectEl.value = langCode;
+      selectEl.dispatchEvent(new Event('change'));
+
+      const labelMap = {
+        en: 'English', fr: 'Français', es: 'Español', de: 'Deutsch',
+        it: 'Italiano', ar: 'العربية', pt: 'Português', ja: '日本語', ko: '한국어'
+      };
+      const currentLangLabel = document.getElementById('current-lang');
+      if (currentLangLabel) {
+        currentLangLabel.textContent = labelMap[langCode] || langCode;
+      }
+      localStorage.setItem('g7_selected_lang', langCode);
+    }
+    if (attempts > 40) clearInterval(checkInterval);
+  }, 100);
 }
 

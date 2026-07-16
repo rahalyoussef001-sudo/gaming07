@@ -1256,16 +1256,15 @@ function initFooterModals() {
     const target = e.target.closest('a');
     if (!target) return;
 
-    const text = target.textContent.trim().toLowerCase();
+    const modalType = target.getAttribute('data-modal');
+    if (!modalType) return;
 
-    if (text === 'privacy policy') {
-      e.preventDefault();
+    e.preventDefault();
+    if (modalType === 'privacy') {
       openModal('🔒 Politique de Confidentialité', contents.privacy);
-    } else if (text === 'terms of service') {
-      e.preventDefault();
+    } else if (modalType === 'terms') {
       openModal('📜 Conditions d\'Utilisation', contents.terms);
-    } else if (text === 'contact us') {
-      e.preventDefault();
+    } else if (modalType === 'contact') {
       openModal('✉️ Nous Contacter', contents.contact);
     }
   });

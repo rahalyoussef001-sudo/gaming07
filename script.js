@@ -975,8 +975,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initBannersForms();
-    initFooterModals();
   }
+
+  initFooterModals();
 });
 
 function initFooterModals() {

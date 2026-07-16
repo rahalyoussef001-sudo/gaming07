@@ -79,6 +79,30 @@
   <!-- Article Layout -->
   <div class="container article-layout">
     <main class="article-content">
+      <!-- Game Info Card -->
+      <div class="game-info-card">
+        <div class="card-img-wrapper">
+          <img src="" alt="Game Logo" id="card-game-img">
+        </div>
+        <div class="card-details">
+          <div class="card-header">
+            <h2 id="card-game-title"></h2>
+            <span class="card-badge" id="card-game-badge"></span>
+          </div>
+          <p class="card-description" id="card-game-description"></p>
+          <div class="card-footer">
+            <div class="card-meta">
+              <span class="meta-title">CAMPAIGN STATUS:</span>
+              <span class="meta-value" id="card-game-id-text">AVAILABLE NOW</span>
+            </div>
+            <a href="#" class="card-btn download-link-btn" target="_blank">
+              PLAY FREE ON PC
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <h2 id="review-title" style="margin-top: 0; font-size: 32px; font-family: var(--font-display);">Review</h2>
       
       <!-- Review Paragraphs Content -->
@@ -93,6 +117,23 @@
 
     <!-- Sidebar specs widget -->
     <aside>
+      <!-- Sidebar Video Widget -->
+      <div class="side-banner-video" style="margin-bottom: 24px; margin-top: 0;">
+        <a href="#" class="download-link-btn" target="_blank">
+          <video id="side-widget-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture style="display: none; width: 100%; height: 100%; object-fit: cover;">
+            <source src="" type="video/webm">
+          </video>
+          <div class="static-banner-bg" id="side-widget-banner-bg" style="width: 100%; height: 100%; background-size: cover; background-position: center;"></div>
+          <div class="banner-overlay"></div>
+          <div class="banner-title" id="side-widget-title"></div>
+          <div class="banner-btn-container">
+            <div class="banner-btn-outer">
+              <span class="banner-btn-text">PLAY FREE NOW</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
       <div class="sidebar-widget">
         <h3 class="widget-title">Campaign Specifications</h3>
         <div class="widget-specs">
@@ -146,6 +187,18 @@
     </div>
   </div>
 
+  <!-- Bottom Sticky Banner -->
+  <div class="bottom-sticky-banner" id="bottomStickyBanner">
+    <a href="#" class="banner-bg-link download-link-btn" id="sticky-banner-bg-link" target="_blank" aria-label="Play Campaign"></a>
+    <a href="#" class="banner-cta-btn download-link-btn" target="_blank">
+      <span id="sticky-banner-cta-btn-text">PLAY NOW</span>
+      <svg viewBox="0 0 24 24" fill="none" width="14" height="14">
+        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <button class="banner-close-btn" onclick="event.stopPropagation(); document.getElementById('bottomStickyBanner').style.display='none';" aria-label="Close banner">&times;</button>
+  </div>
+
   <!-- Toast Notification Wrapper -->
   <div id="toast" class="toast" role="status" aria-live="polite">
     <span class="toast-icon">✓</span>
@@ -185,6 +238,36 @@
       document.getElementById('spec-platforms').textContent = game.platforms;
       document.getElementById('spec-rating').textContent = game.rating || '★★★★☆ 4.5';
       document.getElementById('spec-id').textContent = `#${game.offerId}`;
+      
+      // Populate Game Info Card
+      document.getElementById('card-game-title').textContent = game.name;
+      document.getElementById('card-game-badge').textContent = `${game.category.toUpperCase()} SPOTLIGHT`;
+      document.getElementById('card-game-description').textContent = game.excerpt;
+      document.getElementById('card-game-img').src = game.img ? `../${game.img}` : '../assets/nte_bg.png';
+      
+      // Populate Sidebar Video Widget
+      document.getElementById('side-widget-title').textContent = game.name;
+      const sideVideo = document.getElementById('side-widget-video');
+      const sideBg = document.getElementById('side-widget-banner-bg');
+      if (game.id === 'neverness-to-everness') {
+        sideVideo.querySelector('source').src = 'https://ne.perfcore.com/pop%20up/pop-vid2.webm';
+        sideVideo.load();
+        sideVideo.style.display = 'block';
+        sideBg.style.display = 'none';
+      } else {
+        sideVideo.style.display = 'none';
+        sideBg.style.backgroundImage = game.img ? `url('../${game.img}')` : `linear-gradient(135deg, #090909 0%, #1e1b4b 100%)`;
+        sideBg.style.display = 'block';
+      }
+
+      // Populate Bottom Sticky Banner
+      const stickyBannerBg = document.getElementById('sticky-banner-bg-link');
+      if (game.img) {
+        stickyBannerBg.style.backgroundImage = `url('../${game.img}')`;
+      } else {
+        stickyBannerBg.style.backgroundImage = `linear-gradient(135deg, #020617 0%, #1e1b4b 100%)`;
+      }
+      document.getElementById('sticky-banner-cta-btn-text').textContent = `PLAY ${game.name.split(':')[0].toUpperCase()} NOW`;
       
       // Populate header section background image
       const headerSec = document.getElementById('article-header-section');

@@ -554,6 +554,53 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- ADMIN DASHBOARD PAGE LOGIC ---
   const adminLayout = document.querySelector('.admin-layout');
   if (adminLayout) {
+    // Admin password authentication
+    const loginOverlay = document.getElementById('admin-login-overlay');
+    const loginForm = document.getElementById('admin-login-form');
+    const passwordInput = document.getElementById('admin-password-input');
+    const errorMsg = document.getElementById('login-error-msg');
+    const correctHash = '88a440d3b77c8ca6c0d292d6bf939588879c38998cd0585da7090b76babb15c5'; // SHA-256 for "Gaming07Admin!"
+    
+    async function sha256(message) {
+      const msgBuffer = new TextEncoder().encode(message);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+    
+    if (sessionStorage.getItem('g7_admin_logged_in') === 'true') {
+      if (loginOverlay) loginOverlay.style.display = 'none';
+      adminLayout.classList.remove('blurred');
+    } else {
+      adminLayout.classList.add('blurred');
+    }
+    
+    if (loginForm) {
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const inputPassword = passwordInput.value;
+        const inputHash = await sha256(inputPassword);
+        
+        if (inputHash === correctHash) {
+          errorMsg.textContent = '';
+          sessionStorage.setItem('g7_admin_logged_in', 'true');
+          
+          if (loginOverlay) {
+            loginOverlay.classList.add('fade-out');
+            setTimeout(() => {
+              loginOverlay.style.display = 'none';
+            }, 400);
+          }
+          adminLayout.classList.remove('blurred');
+          showToast('Dashboard Unlocked Successfully');
+        } else {
+          errorMsg.textContent = 'Mot de passe administrateur incorrect !';
+          passwordInput.value = '';
+          passwordInput.focus();
+        }
+      });
+    }
+
     const adminMenuBtns = document.querySelectorAll('.admin-menu-btn');
     const adminSections = document.querySelectorAll('.admin-section');
     

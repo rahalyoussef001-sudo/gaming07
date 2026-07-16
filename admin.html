@@ -41,8 +41,32 @@
     </div>
   </header>
 
+  <!-- Admin Login Overlay -->
+  <div id="admin-login-overlay" class="admin-login-overlay">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="logo-icon">
+          <div class="logo-inner">G7</div>
+        </div>
+        <span class="logo-text">Gaming<span>07</span></span>
+      </div>
+      <h2>Administration Login</h2>
+      <p>Enter your password to unlock the portal manager dashboard.</p>
+      
+      <form id="admin-login-form">
+        <div class="form-group" style="margin-bottom: 0;">
+          <input type="password" id="admin-password-input" class="form-control" placeholder="••••••••" required style="text-align: center; font-size: 16px; letter-spacing: 2px;">
+        </div>
+        <div id="login-error-msg" class="login-error-msg"></div>
+        <button type="submit" class="btn btn-cyan btn-block" style="margin-top: 10px;">
+          Unlock Console &rarr;
+        </button>
+      </form>
+    </div>
+  </div>
+
   <!-- Admin Main Layout -->
-  <div class="admin-layout">
+  <div class="admin-layout blurred">
     
     <!-- Sidebar Navigation -->
     <aside class="admin-sidebar">

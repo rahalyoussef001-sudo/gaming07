@@ -1,0 +1,113 @@
+{
+  "summary": {
+    "health_score": 92,
+    "business_type": "Publisher / Game Review Portal",
+    "top_findings": [
+      {
+        "title": "Brand Inconsistency (GG Nexus)",
+        "severity": "High",
+        "description": "Titles in 4 major articles end with '| GG Nexus' instead of '| Gaming07'.",
+        "recommendation": "Replace '| GG Nexus' with '| Gaming07' in all article titles."
+      },
+      {
+        "title": "Missing Canonical Tags on Original Articles",
+        "severity": "Medium",
+        "description": "6 original articles do not have canonical tags, risking duplicate content indexation.",
+        "recommendation": "Add canonical links targeting the extensionless URLs of each page."
+      },
+      {
+        "title": "Missing JSON-LD and OG Tags on Original Articles",
+        "severity": "Medium",
+        "description": "6 original articles are missing BlogPosting JSON-LD schemas and Open Graph meta tags.",
+        "recommendation": "Inject structured JSON-LD and OG tags to match the new guide standards."
+      }
+    ],
+    "quick_wins": [
+      {
+        "title": "Fix Brand Titles",
+        "description": "Update titles referencing GG Nexus.",
+        "impact": "High"
+      },
+      {
+        "title": "Inject missing canonicals",
+        "description": "Ensure self-referencing canonical links exist on all articles.",
+        "impact": "Medium"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 95,
+      "what_works": [
+        "robots.txt configured with sitemap references and admin disallows",
+        "sitemap.xml created and fully valid containing all extensionless URLs",
+        "HTTPS enforced with clean redirects in .htaccess"
+      ],
+      "findings": [
+        {
+          "title": "Missing Canonical Tags",
+          "severity": "Medium",
+          "description": "6 older articles are missing self-referencing canonical links.",
+          "recommendation": "Inject `<link rel=\"canonical\" href=\"...\">` in head."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 90,
+      "what_works": [
+        "Descriptive heading structures (H1-H6) matching game queries",
+        "Clean, hyphenated URL paths"
+      ],
+      "findings": [
+        {
+          "title": "Outdated Branding in Titles",
+          "severity": "High",
+          "description": "4 articles end with '| GG Nexus' branding.",
+          "recommendation": "Update titles to end with '| Gaming07'."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 95,
+      "what_works": [
+        "Valid JSON-LD on homepage and newly created guides",
+        "Integrated FAQPage schema matching visible FAQ content on the NTE guide"
+      ],
+      "findings": [
+        {
+          "title": "Missing JSON-LD on Original Articles",
+          "severity": "Medium",
+          "description": "Original reviews (e.g. Raid, NTE Review, Once Human Review) lack BlogPosting schema.",
+          "recommendation": "Inject custom JSON-LD graphs for the 6 original articles."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Brand & On-Page Corrections",
+        "timeframe": "Week 1",
+        "items": [
+          "Replace all '| GG Nexus' title tags with '| Gaming07' on 4 original articles",
+          "Add canonical links to the 6 original articles"
+        ]
+      },
+      {
+        "name": "Phase 2: Metadata & Structured Data",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Inject BlogPosting JSON-LD schemas into all original articles",
+          "Inject Open Graph and Twitter Card tags into all original articles"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

@@ -15,10 +15,30 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Gaming07",
-    "url": "https://gaming07.com/",
-    "description": "Discover the best free-to-play PC games on Gaming07. Read expert reviews, setup guides, and find direct official download paths."
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://gaming07.com/#website",
+        "name": "Gaming07",
+        "url": "https://gaming07.com/",
+        "description": "Discover the best free-to-play PC games on Gaming07. Read expert reviews, setup guides, and find direct official download paths."
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://gaming07.com/#organization",
+        "name": "Gaming07",
+        "url": "https://gaming07.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://gaming07.com/assets/logo.png"
+        },
+        "sameAs": [
+          "https://twitter.com/Gaming07",
+          "https://youtube.com/Gaming07",
+          "https://reddit.com/r/Gaming07"
+        ]
+      }
+    ]
   }
   </script>
   <link rel="stylesheet" href="style.css">

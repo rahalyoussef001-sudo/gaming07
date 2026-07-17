@@ -1,0 +1,22 @@
+# Gaming07 - Premium PC Game Discovery Portal
+
+> Discover the best free-to-play PC games. Expert reviews, setup guides, and direct official download paths for the hottest Action RPGs, shooters, and survival sandbox titles.
+
+## Main Pages
+- [Home](https://gaming07.com/): Discover and download premium PC games.
+- [Games Directory](https://gaming07.com/games): Search, filter, and discover games by category.
+- [Strategy Guides](https://gaming07.com/guides): Strategy guides and optimization walkthroughs.
+- [Latest News](https://gaming07.com/news): Patch notes and developer updates.
+
+## Strategy Guides & Reviews
+- [Top 5 Best PC RPGs 2026](https://gaming07.com/articles/best-pc-rpgs-2026): Comparison matrix and reviews of NTE, Once Human, and Arknights Endfield.
+- [Neverness to Everness Beginner Guide](https://gaming07.com/articles/nte-guide-debutant): Ultimate walkthrough for anomalies and vehicle tuning in Hesperia City.
+- [NTE Tier List 2026](https://gaming07.com/articles/nte-tier-list): Best characters and elemental squad synergies.
+- [Neverness to Everness Review](https://gaming07.com/articles/neverness-to-everness): Comprehensive review and PC download guide.
+- [Once Human Stardust Farm Guide](https://gaming07.com/articles/once-human-stardust): Optimal Red Sands routes and base refinement.
+- [Once Human PC Review](https://gaming07.com/articles/once-human): Deep review of survival and cosmic anomalies.
+- [Arknights Endfield Logistics Guide](https://gaming07.com/articles/endfield-logistique): Industrial base automation and conveyor loops.
+- [Arknights Endfield PC Review](https://gaming07.com/articles/arknights-endfield): Review of real-time combat and base building.
+- [Where Winds Meet PC Review](https://gaming07.com/articles/where-winds-meet): Medieval wuxia sandbox gameplay review.
+- [Raid Shadow Legends PC Review](https://gaming07.com/articles/raid-shadow-legends): Champion collection and dungeon crawling guide.
+- [Standard Review Template](https://gaming07.com/articles/review): PC game review and setup template.

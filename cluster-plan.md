@@ -16,7 +16,7 @@
   [Cluster 1: NTE 🟣]         [Cluster 2: OH 🟡]         [Cluster 3: AK:E 🔵]
    ├─ ✅ Beginner Guide        ├─ ✅ Stardust Farming     ├─ ✅ Logistics Guide
    ├─ ✅ PC Review (How-to)    ├─ ✅ PC Review (How-to)    ├─ ✅ PC Review (How-to)
-   ├─ ⬜ Tier List & Heroes     └─ ⬜ Base Defense Guide   └─ ⬜ Combat Synergies
+   ├─ ✅ Tier List & Heroes     └─ ⬜ Base Defense Guide   └─ ⬜ Combat Synergies
    └─ ⬜ Gacha & Pity System
 ```
 
@@ -63,7 +63,7 @@
 *   **URL:** `/articles/neverness-to-everness`
 *   **Secondary Keywords:** `neverness to everness download pc`, `neverness to everness how to play`, `nte features review`
 
-### Article 1.3 — ⬜ Planned (Priority #4)
+### Article 1.3 — ✅ Written
 *   **Title:** NTE Tier List 2026: Best Characters and Team Synergies
 *   **Primary Keyword:** `neverness to everness tier list` (Volume: 2,900/mo)
 *   **Template:** `best-of` (1,800 words)
@@ -144,7 +144,7 @@
 | 1 | **NTE: Ultimate Beginner Guide** | NTE | TOFU/MOFU | ✅ Written | 3,200 | ⭐⭐⭐⭐⭐ (P1) |
 | 2 | **Once Human: Stardust Farming** | Once Human | MOFU/BOFU | ✅ Written | 2,400 | ⭐⭐⭐⭐⭐ (P2) |
 | 3 | **Best PC RPGs 2026 (Pillar)** | Cross-game | TOFU | ✅ Written | 4,800 | ⭐⭐⭐⭐⭐ (P3) |
-| 4 | **NTE Tier List & Hero Guide** | NTE | MOFU/BOFU | ⬜ Planned | 2,900 | ⭐⭐⭐⭐☆ (P4) |
+| 4 | **NTE Tier List & Hero Guide** | NTE | MOFU/BOFU | ✅ Written | 2,900 | ⭐⭐⭐⭐☆ (P4) |
 | 5 | **Once Human PC Review** | Once Human | TOFU/MOFU | ✅ Written | 5,100 | ⭐⭐⭐⭐☆ (P5) |
 | 6 | **NTE PC Review** | NTE | TOFU/MOFU | ✅ Written | 2,100 | ⭐⭐⭐☆☆ (P6) |
 | 7 | **NTE Gacha: Pity & Rates** | NTE | TOFU | ⬜ Planned | 1,800 | ⭐⭐⭐☆☆ (P7) |

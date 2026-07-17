@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest News & Updates — Gaming07</title>
+  <meta name="description" content="Stay up to date with the latest gaming news, updates, patch notes, and release dates for the most popular PC games on Gaming07.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <!-- Ambient Overlays -->
+  <div class="bg-grid"></div>
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-bar">
+      <!-- Brand Logo -->
+      <a href="./" class="logo" style="display: flex; align-items: center;">
+        <img src="assets/logo.png?v=2" alt="Gaming07 Logo" style="height: 38px; width: auto; object-fit: contain;">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links">
+        <a href="./" class="nav-link">Home</a>
+        <a href="games" class="nav-link">Games</a>
+        <a href="guides" class="nav-link">Guides</a>
+        <a href="news" class="nav-link active">News</a>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="nav-actions">
+        <!-- Language Selector -->
+        <div class="lang-selector-container">
+          <button class="lang-btn" id="lang-btn" aria-label="Select Language">
+            🌐 <span id="current-lang">English</span> <span style="font-size: 8px;">▼</span>
+          </button>
+          <div class="lang-dropdown">
+            <a href="#" data-lang="en">English</a>
+            <a href="#" data-lang="fr">Français</a>
+            <a href="#" data-lang="es">Español</a>
+            <a href="#" data-lang="de">Deutsch</a>
+            <a href="#" data-lang="it">Italiano</a>
+            <a href="#" data-lang="ar">العربية</a>
+            <a href="#" data-lang="pt">Português</a>
+            <a href="#" data-lang="ja">日本語</a>
+            <a href="#" data-lang="ko">한국어</a>
+          </div>
+        </div>
+        <button class="search-btn" id="search-btn-header" aria-label="Search games">
+          <span class="search-icon-wrapper">
+            <span>🔍</span>
+            <span class="search-btn-text">Search...</span>
+          </span>
+          <kbd>⌘K</kbd>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme">☀</button>
+
+        <!-- Live Region Badge -->
+        <div class="region-indicator">
+          <span class="region-dot"></span>
+          <span id="region-label">Detecting...</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="container" style="margin-top: 40px; margin-bottom: 20px;">
+    <h1 style="font-family: var(--font-display); font-size: 32px; font-weight: 800; color: #fff;">Latest News & Updates</h1>
+    <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Developer updates, community drops, and patch reviews</p>
+  </section>
+
+  <!-- News Section -->
+  <section class="container news-section" id="news-section" style="margin-top: 20px; margin-bottom: 60px;">
+    <div class="news-grid">
+      
+      <!-- News 1: NTE Character Drop -->
+      <a href="articles/neverness-to-everness" class="news-card">
+        <div class="news-card-banner" style="background-image: url('assets/nte_creative_1.png');">
+          <div class="news-card-scrim"></div>
+          <span class="news-card-game">Neverness to Everness</span>
+        </div>
+        <div class="news-card-body">
+          <h3 class="news-card-headline">NTE Announces Character Beta Schedules & Car Customization</h3>
+          <p class="news-card-excerpt">Hotta Studio shares fresh development updates highlighting deep vehicle performance tuning and real-time anomaly reactions.</p>
+          <span class="news-card-date">📅 July 2026</span>
+        </div>
+      </a>
+
+      <!-- News 2: Once Human Season -->
+      <a href="articles/once-human" class="news-card">
+        <div class="news-card-banner" style="background-image: url('assets/once_human_creative_1.png');">
+          <div class="news-card-scrim"></div>
+          <span class="news-card-game">Once Human</span>
+        </div>
+        <div class="news-card-body">
+          <h3 class="news-card-headline">Once Human Survival Walkthrough: Stardust Gathering Rules</h3>
+          <p class="news-card-excerpt">Unlock optimal territory expansion zones, secure toxic defense towers, and outplay rival squads in deep wilderness areas.</p>
+          <span class="news-card-date">📅 July 2026</span>
+        </div>
+      </a>
+
+      <!-- News 3: Endfield Industrial Loops -->
+      <a href="articles/arknights-endfield" class="news-card">
+        <div class="news-card-banner" style="background-image: url('assets/endfield_creative_1.png');">
+          <div class="news-card-scrim"></div>
+          <span class="news-card-game">Arknights: Endfield</span>
+        </div>
+        <div class="news-card-body">
+          <h3 class="news-card-headline">Automating Talos-II: Industrial Flow Logistics Guide</h3>
+          <p class="news-card-excerpt">Command automatic conveyor-belt production paths, establish battery relays, and maximize squad weapon upgrades instantly.</p>
+          <span class="news-card-date">📅 July 2026</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-links">
+        <a href="./">Home</a>
+        <a href="#" data-modal="privacy">Privacy Policy</a>
+        <a href="#" data-modal="terms">Terms of Service</a>
+        <a href="#" data-modal="contact">Contact Us</a>
+      </div>
+      <p class="footer-disclaimer">Disclaimer: Gaming07 is an independent game discovery and review portal. The buttons and links provided above are tracking links of partners. All associated graphics, assets, and trademarks belong to their respective creators.</p>
+      <p>&copy; 2026 Gaming07. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Search Modal Overlay (Ctrl+K) -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true" aria-label="Game search">
+    <div class="search-modal-content">
+      <div class="search-modal-header">
+        <span>🔍</span>
+        <input type="text" id="search-modal-input" placeholder="Search games, genres, reviews..." autocomplete="off">
+        <button class="search-close-btn" id="search-modal-close" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-modal-results" id="search-modal-results">
+        <!-- Results rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Wrapper -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span id="toast-text"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

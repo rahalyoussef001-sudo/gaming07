@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategy Guides & Tips — Gaming07</title>
+  <meta name="description" content="Master your favorite PC games with Gaming07's detailed guides, tips, and strategies. Walkthroughs for Neverness to Everness, Once Human, and Arknights Endfield.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <!-- Ambient Overlays -->
+  <div class="bg-grid"></div>
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-bar">
+      <!-- Brand Logo -->
+      <a href="./" class="logo" style="display: flex; align-items: center;">
+        <img src="assets/logo.png?v=2" alt="Gaming07 Logo" style="height: 38px; width: auto; object-fit: contain;">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links">
+        <a href="./" class="nav-link">Home</a>
+        <a href="games" class="nav-link">Games</a>
+        <a href="guides" class="nav-link active">Guides</a>
+        <a href="news" class="nav-link">News</a>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="nav-actions">
+        <!-- Language Selector -->
+        <div class="lang-selector-container">
+          <button class="lang-btn" id="lang-btn" aria-label="Select Language">
+            🌐 <span id="current-lang">English</span> <span style="font-size: 8px;">▼</span>
+          </button>
+          <div class="lang-dropdown">
+            <a href="#" data-lang="en">English</a>
+            <a href="#" data-lang="fr">Français</a>
+            <a href="#" data-lang="es">Español</a>
+            <a href="#" data-lang="de">Deutsch</a>
+            <a href="#" data-lang="it">Italiano</a>
+            <a href="#" data-lang="ar">العربية</a>
+            <a href="#" data-lang="pt">Português</a>
+            <a href="#" data-lang="ja">日本語</a>
+            <a href="#" data-lang="ko">한국어</a>
+          </div>
+        </div>
+        <button class="search-btn" id="search-btn-header" aria-label="Search games">
+          <span class="search-icon-wrapper">
+            <span>🔍</span>
+            <span class="search-btn-text">Search...</span>
+          </span>
+          <kbd>⌘K</kbd>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="Switch Theme">☀</button>
+
+        <!-- Live Region Badge -->
+        <div class="region-indicator">
+          <span class="region-dot"></span>
+          <span id="region-label">Detecting...</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="container" style="margin-top: 40px; margin-bottom: 20px;">
+    <h1 style="font-family: var(--font-display); font-size: 32px; font-weight: 800; color: #fff;">Strategy Guides & Tips</h1>
+    <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Freshly published walkthoughs, optimization guides, and databases for 2026's top releases</p>
+  </section>
+
+  <!-- Guides Grid Section -->
+  <section class="container" id="guides-section" style="margin-top: 20px; margin-bottom: 60px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;">
+      
+      <!-- Pillar Guide: Best PC RPGs 2026 -->
+      <a href="articles/best-pc-rpgs-2026" style="display: flex; flex-direction: column; background: rgba(13, 17, 28, 0.45); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; transition: var(--transition); text-decoration: none;" onmouseover="this.style.borderColor='var(--accent-cyan)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='translateY(0)'">
+        <div style="height: 180px; background-image: url('assets/hero_bg.png'); background-size: cover; background-position: center; position: relative;">
+          <div style="position: absolute; top: 12px; left: 12px; background: var(--accent-purple); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 4px; text-transform: uppercase;">Featured Pillar</div>
+        </div>
+        <div style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 16px; color: #fff; font-weight: 600; margin-bottom: 8px; line-height: 1.4;">Top 5 Best PC RPG and Survival Games to Play in 2026</h3>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Detailed feature comparison and reviews of Neverness to Everness, Once Human, and Arknights Endfield.</p>
+          </div>
+          <span style="font-size: 12px; color: var(--accent-cyan); font-weight: 600; display: flex; align-items: center; gap: 4px;">Read Article &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Guide 1: NTE -->
+      <a href="articles/nte-guide-debutant" style="display: flex; flex-direction: column; background: rgba(13, 17, 28, 0.45); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; transition: var(--transition); text-decoration: none;" onmouseover="this.style.borderColor='var(--accent-cyan)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='translateY(0)'">
+        <div style="height: 180px; background-image: url('assets/nte_bg.png'); background-size: cover; background-position: center; position: relative;">
+          <div style="position: absolute; top: 12px; left: 12px; background: var(--accent-cyan); color: #000; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 4px; text-transform: uppercase;">Pillar Guide</div>
+        </div>
+        <div style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 16px; color: #fff; font-weight: 600; margin-bottom: 8px; line-height: 1.4;">Neverness to Everness: The Ultimate Beginner's Guide to Hesperia City</h3>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Master elemental reactions, customize your vehicles, and explore the supernatural neon city.</p>
+          </div>
+          <span style="font-size: 12px; color: var(--accent-cyan); font-weight: 600; display: flex; align-items: center; gap: 4px;">Read Guide &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Guide 2: Once Human -->
+      <a href="articles/once-human-stardust" style="display: flex; flex-direction: column; background: rgba(13, 17, 28, 0.45); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; transition: var(--transition); text-decoration: none;" onmouseover="this.style.borderColor='var(--accent-cyan)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='translateY(0)'">
+        <div style="height: 180px; background-image: url('assets/once_human_bg.png'); background-size: cover; background-position: center; position: relative;">
+          <div style="position: absolute; top: 12px; left: 12px; background: var(--accent-purple); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 4px; text-transform: uppercase;">Optimization</div>
+        </div>
+        <div style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 16px; color: #fff; font-weight: 600; margin-bottom: 8px; line-height: 1.4;">Once Human: How to Optimize Your Stardust Farming</h3>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Optimal farming routes at Red Sands, world events, and passive base refinement techniques.</p>
+          </div>
+          <span style="font-size: 12px; color: var(--accent-cyan); font-weight: 600; display: flex; align-items: center; gap: 4px;">Read Guide &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Guide 3: Endfield -->
+      <a href="articles/endfield-logistique" style="display: flex; flex-direction: column; background: rgba(13, 17, 28, 0.45); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; transition: var(--transition); text-decoration: none;" onmouseover="this.style.borderColor='var(--accent-cyan)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='translateY(0)'">
+        <div style="height: 180px; background-image: url('assets/endfield_bg.png'); background-size: cover; background-position: center; position: relative;">
+          <div style="position: absolute; top: 12px; left: 12px; background: var(--accent-emerald); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 4px; text-transform: uppercase;">Factory Build</div>
+        </div>
+        <div style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 16px; color: #fff; font-weight: 600; margin-bottom: 8px; line-height: 1.4;">Arknights Endfield: Complete Industrial Logistics Guide</h3>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Design factory conveyor belts, manage the energy grid, and automate harvesting on Talos-II.</p>
+          </div>
+          <span style="font-size: 12px; color: var(--accent-cyan); font-weight: 600; display: flex; align-items: center; gap: 4px;">Read Guide &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-links">
+        <a href="./">Home</a>
+        <a href="#" data-modal="privacy">Privacy Policy</a>
+        <a href="#" data-modal="terms">Terms of Service</a>
+        <a href="#" data-modal="contact">Contact Us</a>
+      </div>
+      <p class="footer-disclaimer">Disclaimer: Gaming07 is an independent game discovery and review portal. The buttons and links provided above are tracking links of partners. All associated graphics, assets, and trademarks belong to their respective creators.</p>
+      <p>&copy; 2026 Gaming07. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Search Modal Overlay (Ctrl+K) -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true" aria-label="Game search">
+    <div class="search-modal-content">
+      <div class="search-modal-header">
+        <span>🔍</span>
+        <input type="text" id="search-modal-input" placeholder="Search games, genres, reviews..." autocomplete="off">
+        <button class="search-close-btn" id="search-modal-close" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-modal-results" id="search-modal-results">
+        <!-- Results rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Wrapper -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span id="toast-text"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -606,7 +606,7 @@ document.addEventListener('DOMContentLoaded', () => {
           adminLayout.classList.remove('blurred');
           showToast('Dashboard Unlocked Successfully');
         } else {
-          errorMsg.textContent = 'Mot de passe administrateur incorrect !';
+          errorMsg.textContent = 'Incorrect administrator password!';
           passwordInput.value = '';
           passwordInput.focus();
         }
@@ -1255,8 +1255,8 @@ function initFooterModals() {
     document.getElementById('g7-modal-body-content').innerHTML = `
       <div class="g7-contact-success">
         <div class="g7-success-icon">🎉</div>
-        <h3>Merci, ${name}!</h3>
-        <p>Votre message a été envoyé avec succès. Nous vous répondrons à l'adresse <strong>${email}</strong> dans les plus brefs délais.</p>
+        <h3>Thank you, ${name}!</h3>
+        <p>Your message has been sent successfully. We will reply to you at <strong>${email}</strong> as soon as possible.</p>
       </div>
     `;
 
@@ -1265,50 +1265,50 @@ function initFooterModals() {
 
   const contents = {
     privacy: `
-      <p><strong>Dernière mise à jour : Juillet 2026</strong></p>
-      <p>Chez Gaming07 Portal, la protection de votre vie privée est une priorité absolue. Cette politique de confidentialité explique les types d'informations que nous collectons et comment nous les utilisons.</p>
+      <p><strong>Last Updated: July 2026</strong></p>
+      <p>At Gaming07 Portal, protecting your privacy is our top priority. This Privacy Policy explains the types of information we collect and how we use it.</p>
       
-      <h4>1. Collecte des données</h4>
-      <p>Nous pouvons collecter des informations fournies volontairement (comme votre nom et email lors de l'utilisation de nos formulaires ou la gestion des comptes) afin de répondre à vos demandes.</p>
+      <h4>1. Data Collection</h4>
+      <p>We may collect information provided voluntarily (such as your name and email when using our forms or managing accounts) in order to respond to your requests.</p>
       
-      <h4>2. Cookies et traceurs</h4>
-      <p>Nous utilisons des cookies essentiels pour stocker vos préférences de navigation (comme le thème sombre/lumineux ou la fermeture des bannières promotionnelles). Des traceurs tiers peuvent être utilisés par les réseaux d'affiliation partenaires pour comptabiliser les clics sur les boutons de téléchargement de jeux.</p>
+      <h4>2. Cookies and Tracking</h4>
+      <p>We use essential cookies to store your browsing preferences (such as dark/light theme or the closing of promotional banners). Third-party tracking may be used by partner affiliate networks to record clicks on game download buttons.</p>
       
-      <h4>3. Sécurité</h4>
-      <p>Toutes vos données de session et préférences restent stockées en local sur votre propre appareil (via le stockage LocalStorage). Nous ne vendons ni ne partageons aucune de vos données personnelles.</p>
+      <h4>3. Security</h4>
+      <p>All of your session data and preferences remain stored locally on your own device (via LocalStorage). We do not sell or share any of your personal data.</p>
     `,
     terms: `
-      <p><strong>Dernière mise à jour : Juillet 2026</strong></p>
-      <p>Bienvenue sur Gaming07 Portal. En accédant à ce site, vous acceptez nos conditions d'utilisation. Si vous ne les acceptez pas, veuillez ne pas utiliser nos services.</p>
+      <p><strong>Last Updated: July 2026</strong></p>
+      <p>Welcome to Gaming07 Portal. By accessing this website, you agree to our terms of service. If you do not agree, please do not use our services.</p>
       
-      <h4>1. Propriété intellectuelle</h4>
-      <p>Tout le contenu textuel, les avis de jeux, les animations et la structure du site Gaming07 sont la propriété exclusive du portail, à l'exception des médias appartenant aux éditeurs de jeux respectifs.</p>
+      <h4>1. Intellectual Property</h4>
+      <p>All textual content, game reviews, animations, and structure of the Gaming07 website are the exclusive property of the portal, except for media belonging to their respective game publishers.</p>
       
-      <h4>2. Liens d'affiliation</h4>
-      <p>Ce portail est affilié à un réseau de partenaires publicitaires. Les liens de téléchargement de jeux (boutons "Play Free") intègrent des paramètres de suivi. Cliquer sur ces liens permet de soutenir notre équipe de rédaction sans aucun frais pour vous.</p>
+      <h4>2. Affiliate Links</h4>
+      <p>This portal is affiliated with a network of advertising partners. Game download links ("Play Free" buttons) integrate tracking parameters. Clicking these links supports our editorial team at no cost to you.</p>
       
-      <h4>3. Responsabilité</h4>
-      <p>Les avis et analyses publiés sur ce site sont fournis à titre informatif. Nous ne garantissons pas le fonctionnement des clients de jeux tiers téléchargés via les liens d'affiliation externes.</p>
+      <h4>3. Liability</h4>
+      <p>Reviews and analyses published on this site are provided for informational purposes. We do not guarantee the functioning of third-party game clients downloaded via external affiliate links.</p>
     `,
     contact: `
       <form class="g7-contact-form" id="g7-actual-contact-form">
         <div class="g7-form-group">
-          <label for="g7-contact-name">Nom complet</label>
-          <input type="text" id="g7-contact-name" class="g7-form-input" placeholder="Ex: Jean Dupont" required>
+          <label for="g7-contact-name">Full Name</label>
+          <input type="text" id="g7-contact-name" class="g7-form-input" placeholder="e.g., John Doe" required>
         </div>
         <div class="g7-form-group">
-          <label for="g7-contact-email">Adresse e-mail</label>
-          <input type="email" id="g7-contact-email" class="g7-form-input" placeholder="Ex: jean.dupont@mail.com" required>
+          <label for="g7-contact-email">Email Address</label>
+          <input type="email" id="g7-contact-email" class="g7-form-input" placeholder="e.g., john.doe@mail.com" required>
         </div>
         <div class="g7-form-group">
-          <label for="g7-contact-subject">Sujet</label>
-          <input type="text" id="g7-contact-subject" class="g7-form-input" placeholder="Objet de votre message" required>
+          <label for="g7-contact-subject">Subject</label>
+          <input type="text" id="g7-contact-subject" class="g7-form-input" placeholder="Subject of your message" required>
         </div>
         <div class="g7-form-group">
           <label for="g7-contact-msg">Message</label>
-          <textarea id="g7-contact-msg" class="g7-form-input" rows="4" placeholder="Écrivez votre message ici..." required></textarea>
+          <textarea id="g7-contact-msg" class="g7-form-input" rows="4" placeholder="Write your message here..." required></textarea>
         </div>
-        <button type="submit" class="g7-contact-submit">Envoyer le message</button>
+        <button type="submit" class="g7-contact-submit">Send Message</button>
       </form>
     `
   };
@@ -1322,11 +1322,11 @@ function initFooterModals() {
 
     e.preventDefault();
     if (modalType === 'privacy') {
-      openModal('🔒 Politique de Confidentialité', contents.privacy);
+      openModal('🔒 Privacy Policy', contents.privacy);
     } else if (modalType === 'terms') {
-      openModal('📜 Conditions d\'Utilisation', contents.terms);
+      openModal('📜 Terms of Service', contents.terms);
     } else if (modalType === 'contact') {
-      openModal('✉️ Nous Contacter', contents.contact);
+      openModal('✉️ Contact Us', contents.contact);
     }
   });
 }

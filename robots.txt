@@ -1,3 +1,17 @@
+# Block AI Training Bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# Allow all other bots (including Search crawlers and ChatGPT-User / OAI-SearchBot)
 User-agent: *
 Allow: /
 Disallow: /admin.html

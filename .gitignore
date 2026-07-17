@@ -4,3 +4,17 @@ Thumbs.db
 node_modules/
 package.json
 package-lock.json
+
+# Assistant Custom Skills and Rules
+.agents/
+
+# Audit reports and plans
+gaming07.com-audit/
+blog-strategy/
+cluster-plan.json
+cluster-plan.md
+
+# Deployment & Utility Scripts
+cpanel_deploy_key
+cpanel_deploy_key.pub
+indexnow.js

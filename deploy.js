@@ -25,7 +25,7 @@ async function deploy() {
             const items = fs.readdirSync(localDirPath);
             
             for (const item of items) {
-                // Exclude system files and script files
+                // Exclude system files, local configurations, and development audits
                 if (
                     item === ".git" || 
                     item === "node_modules" || 
@@ -34,7 +34,15 @@ async function deploy() {
                     item === "package.json" || 
                     item === "package-lock.json" || 
                     item === ".gitignore" || 
-                    item === ".github"
+                    item === ".github" ||
+                    item === ".agents" ||
+                    item === "gaming07.com-audit" ||
+                    item === "blog-strategy" ||
+                    item === "cluster-plan.json" ||
+                    item === "cluster-plan.md" ||
+                    item === "cpanel_deploy_key" ||
+                    item === "cpanel_deploy_key.pub" ||
+                    item === "indexnow.js"
                 ) {
                     continue;
                 }

@@ -1,87 +1,68 @@
 {
   "summary": {
-    "health_score": 92,
-    "business_type": "Publisher / Game Review Portal",
+    "health_score": 88,
+    "business_type": "Publisher / Affiliate Game Discovery Portal",
     "top_findings": [
-      {
-        "title": "Brand Inconsistency (GG Nexus)",
-        "severity": "High",
-        "description": "Titles in 4 major articles end with '| GG Nexus' instead of '| Gaming07'.",
-        "recommendation": "Replace '| GG Nexus' with '| Gaming07' in all article titles."
-      },
-      {
-        "title": "Missing Canonical Tags on Original Articles",
-        "severity": "Medium",
-        "description": "6 original articles do not have canonical tags, risking duplicate content indexation.",
-        "recommendation": "Add canonical links targeting the extensionless URLs of each page."
-      },
-      {
-        "title": "Missing JSON-LD and OG Tags on Original Articles",
-        "severity": "Medium",
-        "description": "6 original articles are missing BlogPosting JSON-LD schemas and Open Graph meta tags.",
-        "recommendation": "Inject structured JSON-LD and OG tags to match the new guide standards."
-      }
+      "Missing canonical link tags on root pages",
+      "Outdated XML sitemap missing five clean URLs",
+      "Missing JSON-LD schemas on homepage and original reviews",
+      "Missing Open Graph tags on original review articles"
     ],
     "quick_wins": [
-      {
-        "title": "Fix Brand Titles",
-        "description": "Update titles referencing GG Nexus.",
-        "impact": "High"
-      },
-      {
-        "title": "Inject missing canonicals",
-        "description": "Ensure self-referencing canonical links exist on all articles.",
-        "impact": "Medium"
-      }
+      "Inject self-referencing canonical tags into root files",
+      "Update sitemap.xml with new clean URLs"
     ]
   },
   "categories": [
     {
       "name": "Technical SEO",
-      "score": 95,
+      "score": 85,
       "what_works": [
-        "robots.txt configured with sitemap references and admin disallows",
-        "sitemap.xml created and fully valid containing all extensionless URLs",
-        "HTTPS enforced with clean redirects in .htaccess"
+        "Robots.txt references the sitemap and blocks /admin",
+        "Redirection rules in .htaccess strip file extensions correctly"
       ],
       "findings": [
         {
-          "title": "Missing Canonical Tags",
-          "severity": "Medium",
-          "description": "6 older articles are missing self-referencing canonical links.",
-          "recommendation": "Inject `<link rel=\"canonical\" href=\"...\">` in head."
+          "title": "Missing Canonicals on Root Pages",
+          "severity": "Critical",
+          "description": "index.html, games.html, guides.html, and news.html do not contain canonical link tags.",
+          "recommendation": "Inject self-referencing canonical links in the head of each root HTML file."
+        },
+        {
+          "title": "Outdated XML Sitemap",
+          "severity": "Critical",
+          "description": "sitemap.xml has not been updated and is missing five new clean URLs.",
+          "recommendation": "Add /games, /guides, /news, /articles/best-pc-rpgs-2026, and /articles/nte-tier-list to sitemap.xml."
         }
       ]
     },
     {
-      "name": "On-Page SEO",
-      "score": 90,
+      "name": "Schema & Structured Data",
+      "score": 60,
       "what_works": [
-        "Descriptive heading structures (H1-H6) matching game queries",
-        "Clean, hyphenated URL paths"
+        "Recent guides include BlogPosting and FAQPage structured schemas"
       ],
       "findings": [
         {
-          "title": "Outdated Branding in Titles",
-          "severity": "High",
-          "description": "4 articles end with '| GG Nexus' branding.",
-          "recommendation": "Update titles to end with '| Gaming07'."
+          "title": "Missing JSON-LD Schemas",
+          "severity": "Medium",
+          "description": "The homepage, the three category files, and the six original review pages lack any structured data.",
+          "recommendation": "Inject WebSite, CollectionPage, and BlogPosting schemas where appropriate."
         }
       ]
     },
     {
-      "name": "Schema / Structured Data",
-      "score": 95,
+      "name": "Social Metadata",
+      "score": 75,
       "what_works": [
-        "Valid JSON-LD on homepage and newly created guides",
-        "Integrated FAQPage schema matching visible FAQ content on the NTE guide"
+        "Newly generated guides feature Open Graph preview tags"
       ],
       "findings": [
         {
-          "title": "Missing JSON-LD on Original Articles",
+          "title": "Missing Open Graph Tags",
           "severity": "Medium",
-          "description": "Original reviews (e.g. Raid, NTE Review, Once Human Review) lack BlogPosting schema.",
-          "recommendation": "Inject custom JSON-LD graphs for the 6 original articles."
+          "description": "The homepage, the three category files, and the six original reviews do not have Open Graph properties.",
+          "recommendation": "Inject og:title, og:description, og:image, og:url, and og:type tags."
         }
       ]
     }
@@ -89,19 +70,26 @@
   "action_plan": {
     "phases": [
       {
-        "name": "Phase 1: Brand & On-Page Corrections",
-        "timeframe": "Week 1",
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Immediate",
         "items": [
-          "Replace all '| GG Nexus' title tags with '| Gaming07' on 4 original articles",
-          "Add canonical links to the 6 original articles"
+          "Inject canonical tags into root files",
+          "Add the 5 missing clean URLs to sitemap.xml"
         ]
       },
       {
-        "name": "Phase 2: Metadata & Structured Data",
-        "timeframe": "Weeks 2-3",
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 1",
         "items": [
-          "Inject BlogPosting JSON-LD schemas into all original articles",
-          "Inject Open Graph and Twitter Card tags into all original articles"
+          "Add WebSite and CollectionPage JSON-LD schemas to root files",
+          "Add BlogPosting JSON-LD schemas to the 6 original review articles"
+        ]
+      },
+      {
+        "name": "Phase 3: Social Meta Integration",
+        "timeframe": "Weeks 2",
+        "items": [
+          "Add Open Graph metadata to all pages lacking them"
         ]
       }
     ]

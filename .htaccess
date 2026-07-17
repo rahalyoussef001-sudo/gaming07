@@ -1,14 +1,36 @@
 RewriteEngine On
 
-# 1. Redirect /index.html to / (main domain root)
+# 1. Force HTTPS Redirection
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Redirect /index.html to / (main domain root)
 RewriteCond %{THE_REQUEST} /index\.html [NC]
 RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
 
-# 2. Redirect explicit .html URLs to extensionless URLs
+# 3. Redirect explicit .html URLs to extensionless URLs
 RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
 RewriteRule ^(.*)\.html$ /$1 [R=301,L]
 
-# 3. Internally rewrite extensionless requests to the .html file
+# 4. Internally rewrite extensionless requests to the .html file
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [L]
+
+# 5. Set Security Headers
+<IfModule mod_headers.c>
+  # Enforce HTTPS with HSTS (1 year)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  
+  # Prevent Clickjacking (X-Frame-Options)
+  Header always set X-Frame-Options "SAMEORIGIN"
+  
+  # Prevent MIME-type Sniffing (X-Content-Type-Options)
+  Header always set X-Content-Type-Options "nosniff"
+  
+  # Set Referrer Policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Set Content Security Policy (supporting self assets and Google Translate CDN)
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://translate.google.com https://translate.googleapis.com; style-src 'self' 'unsafe-inline' https://translate.googleapis.com; img-src 'self' data: https://translate.google.com https://translate.googleapis.com https://www.gstatic.com; connect-src 'self'; font-src 'self' https://fonts.gstatic.com;"
+</IfModule>

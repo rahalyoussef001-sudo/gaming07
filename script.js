@@ -35,17 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Force clean outdated localStorage links containing dordir.com
+  // Force clean outdated localStorage links and synchronize video properties
   try {
-    let storedOffers = localStorage.getItem('gaming07_offers');
-    if (storedOffers && storedOffers.includes('dordir.com')) {
-      storedOffers = storedOffers.replace(/to\.dordir\.com/g, 'afb.nexirivium.com');
-      localStorage.setItem('gaming07_offers', storedOffers);
-    }
-    let storedPopup = localStorage.getItem('gaming07_popup');
-    if (storedPopup && storedPopup.includes('dordir.com')) {
-      storedPopup = storedPopup.replace(/to\.dordir\.com/g, 'afb.nexirivium.com');
-      localStorage.setItem('gaming07_popup', storedPopup);
+    let storedOffers = safeGetJSON('gaming07_offers', defaultOffers);
+    let updated = false;
+    storedOffers = storedOffers.map(so => {
+      const match = defaultOffers.find(d => d.id === so.id);
+      if (match) {
+        if (so.video !== match.video) {
+          so.video = match.video;
+          updated = true;
+        }
+        if (so.link !== match.link || (so.link && so.link.includes('dordir.com'))) {
+          so.link = match.link;
+          updated = true;
+        }
+      }
+      return so;
+    });
+    if (updated) {
+      localStorage.setItem('gaming07_offers', JSON.stringify(storedOffers));
     }
   } catch (e) {}
 

@@ -17,7 +17,13 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [L]
 
-# 5. Set Security Headers
+# 5. Correct MIME Type for XML Sitemaps
+<FilesMatch "\.xml$">
+  Header set Content-Type "application/xml; charset=UTF-8"
+</FilesMatch>
+AddType application/xml .xml
+
+# 6. Set Security Headers
 <IfModule mod_headers.c>
   # Enforce HTTPS with HSTS (1 year)
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"

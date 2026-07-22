@@ -18,3 +18,7 @@ cluster-plan.md
 cpanel_deploy_key
 cpanel_deploy_key.pub
 indexnow.js
+
+# Private Credentials & API Configs
+service_account.json
+google-api.json

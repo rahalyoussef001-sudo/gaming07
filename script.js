@@ -518,8 +518,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       cells.forEach(cell => {
         const card = cell.querySelector('.game-card');
-        const title = card.querySelector('.game-title').textContent.toLowerCase();
-        const excerpt = card.querySelector('.game-excerpt').textContent.toLowerCase();
+        if (!card) return;
+        const title = card.querySelector('.game-title') ? card.querySelector('.game-title').textContent.toLowerCase() : '';
+        const excerpt = card.querySelector('.game-excerpt') ? card.querySelector('.game-excerpt').textContent.toLowerCase() : '';
         const category = card.dataset.category;
 
         const matchesSearch = title.includes(query) || excerpt.includes(query);
@@ -537,6 +538,22 @@ document.addEventListener('DOMContentLoaded', () => {
         section.style.display = 'none';
       } else {
         section.style.display = 'block';
+      }
+    });
+
+    // Filter guide cards & hardware/industry sections
+    const guideCards = document.querySelectorAll('.guide-card');
+    guideCards.forEach(card => {
+      const category = card.dataset.category || 'guides';
+      const title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
+      const excerpt = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
+      const matchesSearch = !query || title.includes(query) || excerpt.includes(query);
+      const matchesCategory = activeCategory === 'all' || activeCategory === 'guides' || category === activeCategory;
+
+      if (matchesSearch && matchesCategory) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
       }
     });
   }

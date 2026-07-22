@@ -931,6 +931,9 @@ body.light-theme .carousel-scrim {
 .game-badge.badge-rpg { color: var(--accent-cyan); }
 .game-badge.badge-strategy { color: var(--accent-purple); }
 .game-badge.badge-survival { color: var(--accent-emerald); }
+.game-badge.badge-hardware { color: #f59e0b; }
+.game-badge.badge-industry { color: #6366f1; }
+.game-badge.badge-peripherals { color: #00f0ff; }
 
 .wishlist-btn {
   position: absolute;

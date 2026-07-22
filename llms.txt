@@ -1,14 +1,25 @@
-# Gaming07 - Premium PC Game Discovery Portal
+# Gaming07 - Premium PC Game & Peripherals Discovery Portal
 
-> Discover the best free-to-play PC games. Expert reviews, setup guides, and direct official download paths for the hottest Action RPGs, shooters, and survival sandbox titles.
+> Discover the best free-to-play PC games, gaming hardware, and industry reports. Expert reviews, setup guides, gear benchmarks, and direct official download paths.
 
 ## Main Pages
 - [Home](https://gaming07.com/): Discover and download premium PC games.
 - [Games Directory](https://gaming07.com/games): Search, filter, and discover games by category.
 - [Strategy Guides](https://gaming07.com/guides): Strategy guides and optimization walkthroughs.
 - [Latest News](https://gaming07.com/news): Patch notes and developer updates.
+- [PC Hardware](https://gaming07.com/articles/best-pc-gaming-gear-2026): Buyer's guide for 8K mice, magnetic keyboards, and OLED monitors.
+- [Gaming Industry](https://gaming07.com/articles/gaming-industry-trends-2026): Industry reports, market trends, and game engine tech.
 
-## Strategy Guides & Reviews
+## PC Hardware & Peripherals Guides
+- [Top PC Gaming Gear 2026](https://gaming07.com/articles/best-pc-gaming-gear-2026): Master buyer's guide for high-precision gaming setups.
+- [Best Lightweight Wireless Mice 2026](https://gaming07.com/articles/best-gaming-mice-2026): 8,000Hz polling rate and optical switch analysis.
+- [Custom Mechanical Keyboards 2026](https://gaming07.com/articles/mechanical-keyboard-guide-2026): Rapid Trigger dynamic actuation and Hall Effect magnetic switches.
+
+## Gaming Industry & Market Insights
+- [Gaming Industry Report 2026](https://gaming07.com/articles/gaming-industry-trends-2026): Market revenue, live-service models, and studio shifts.
+- [Unreal Engine 5.4+ Future](https://gaming07.com/articles/unreal-engine-5-future): Nanite, Lumen, and Motion Matching in next-gen open-world games.
+
+## Game Strategy Guides & Reviews
 - [Top 5 Best PC RPGs 2026](https://gaming07.com/articles/best-pc-rpgs-2026): Comparison matrix and reviews of NTE, Once Human, and Arknights Endfield.
 - [Neverness to Everness Beginner Guide](https://gaming07.com/articles/nte-guide-debutant): Ultimate walkthrough for anomalies and vehicle tuning in Hesperia City.
 - [NTE Tier List 2026](https://gaming07.com/articles/nte-tier-list): Best characters and elemental squad synergies.
@@ -19,4 +30,3 @@
 - [Arknights Endfield PC Review](https://gaming07.com/articles/arknights-endfield): Review of real-time combat and base building.
 - [Where Winds Meet PC Review](https://gaming07.com/articles/where-winds-meet): Medieval wuxia sandbox gameplay review.
 - [Raid Shadow Legends PC Review](https://gaming07.com/articles/raid-shadow-legends): Champion collection and dungeon crawling guide.
-- [Standard Review Template](https://gaming07.com/articles/review): PC game review and setup template.

@@ -156,6 +156,77 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initTheme();
 
+  // --- GA4 Conversion & Event Analytics Engine ---
+  function initGA4Tracking() {
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a');
+      if (!link) return;
+
+      const href = link.getAttribute('href') || '';
+      const gameName = link.getAttribute('data-game-name') || link.innerText.trim() || 'Unknown Game';
+      const offerId = link.getAttribute('data-offer-id') || 'general';
+
+      // Track outbound affiliate / download clicks
+      if (href.includes('dordir.com') || link.classList.contains('btn-download') || link.classList.contains('download-link-btn')) {
+        if (typeof gtag === 'function') {
+          // Fire GA4 standard Lead Generation event
+          gtag('event', 'generate_lead', {
+            'event_category': 'affiliate_download',
+            'event_label': gameName,
+            'game_name': gameName,
+            'offer_id': offerId,
+            'destination_url': href,
+            'value': 1.0,
+            'currency': 'USD'
+          });
+
+          // Fire Custom Affiliate Click event
+          gtag('event', 'affiliate_click', {
+            'game_name': gameName,
+            'offer_id': offerId,
+            'outbound_url': href,
+            'page_path': window.location.pathname
+          });
+        }
+      }
+    });
+
+    // Track modal search queries
+    const searchModalInput = document.getElementById('search-modal-input');
+    if (searchModalInput) {
+      let searchTimeout;
+      searchModalInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim();
+        clearTimeout(searchTimeout);
+        if (query.length >= 3) {
+          searchTimeout = setTimeout(() => {
+            if (typeof gtag === 'function') {
+              gtag('event', 'search', {
+                'search_term': query
+              });
+            }
+          }, 800);
+        }
+      });
+    }
+
+    // Track category filter clicks
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.getAttribute('data-category') || btn.innerText.trim();
+        if (typeof gtag === 'function') {
+          gtag('event', 'select_content', {
+            'content_type': 'category_filter',
+            'item_id': cat
+          });
+        }
+      });
+    });
+  }
+
+  initGA4Tracking();
+
   // --- Region Simulator ---
   const regionLabel = document.getElementById('region-label');
   if (regionLabel) {

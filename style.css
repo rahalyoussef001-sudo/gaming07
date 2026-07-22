@@ -1078,6 +1078,7 @@ body.light-theme .carousel-scrim {
   font-family: var(--font-display);
   font-size: 28px;
   font-weight: 700;
+  color: var(--text-main);
 }
 
 .news-grid {

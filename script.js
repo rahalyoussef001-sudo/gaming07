@@ -327,6 +327,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const cell = document.createElement('div');
       cell.className = 'rail-cell';
       
+      const badgeClass = `badge-${o.category}`;
+      const isLocalReview = ['neverness-to-everness', 'arknights-endfield', 'once-human', 'where-winds-meet', 'raid-shadow-legends'].includes(o.id);
+      const reviewLink = isLocalReview ? `articles/${o.id}` : `articles/review?game=${o.id}`;
       const hoverVideo = o.video 
         ? `<video class="game-card-hover-video" loop muted playsinline preload="none"><source src="${o.video}" type="video/mp4"></video>`
         : '';

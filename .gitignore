@@ -1,24 +1,33 @@
-gaming07_release.zip
+# System & Build Artifacts
 .DS_Store
 Thumbs.db
 node_modules/
 package.json
 package-lock.json
+gaming07_release.zip
 
-# Assistant Custom Skills and Rules
+# Assistant Custom Skills, Rules & Workspace Scratch
 .agents/
+.brain/
+scratch/
 
-# Audit reports and plans
+# Audit Reports & Strategy Files
 gaming07.com-audit/
+audit/
 blog-strategy/
 cluster-plan.json
 cluster-plan.md
+cluster-map.html
 
 # Deployment & Utility Scripts
 cpanel_deploy_key
 cpanel_deploy_key.pub
 indexnow.js
+deploy.js
 
 # Private Credentials & API Configs
 service_account.json
 google-api.json
+
+# Heavy Media Files (Streamed via CDN/R2 in Production)
+*.mp4

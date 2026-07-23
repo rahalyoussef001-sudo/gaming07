@@ -327,16 +327,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const cell = document.createElement('div');
       cell.className = 'rail-cell';
       
-      const badgeClass = `badge-${o.category}`;
-      const isLocalReview = ['neverness-to-everness', 'arknights-endfield', 'once-human', 'where-winds-meet', 'raid-shadow-legends'].includes(o.id);
-      const reviewLink = isLocalReview ? `articles/${o.id}` : `articles/review?game=${o.id}`;
+      const hoverVideo = o.video 
+        ? `<video class="game-card-hover-video" loop muted playsinline preload="none"><source src="${o.video}" type="video/mp4"></video>`
+        : '';
       const imageTag = o.img ? `<img src="${o.img}" alt="${o.name}" class="game-card-img" loading="lazy">` : `<div style="background: linear-gradient(135deg, #1e1b4b 0%, #022c22 100%); width:100%; height:100%;" class="game-card-img"></div>`;
       const reviewBtn = o.reviewText ? `<a href="${reviewLink}" class="btn btn-secondary">Review</a>` : `<button class="btn btn-secondary" disabled>No Review</button>`;
 
       cell.innerHTML = `
-        <div class="game-card" data-category="${o.category}">
-          <div class="game-card-banner">
+        <div class="game-card" data-category="${o.category}" data-video="${o.video || ''}">
+          <div class="game-card-banner" data-video="${o.video || ''}">
             ${imageTag}
+            ${hoverVideo}
             <div class="game-card-gradient"></div>
             <button class="wishlist-btn" data-game-id="${o.id}" data-game-name="${o.name}" aria-label="Add to wishlist">♡</button>
             <div class="play-hover-overlay" aria-hidden="true"><span class="play-hover-icon">▶</span></div>
@@ -1457,4 +1458,52 @@ function translatePage(langCode) {
     if (attempts > 40) clearInterval(checkInterval);
   }, 100);
 }
+  // --- Game Card Hover Video Trailer Engine ---
+  function initHoverVideoEngine() {
+    document.addEventListener('mouseover', (e) => {
+      const banner = e.target.closest('.game-card-banner, .game-card');
+      if (!banner) return;
+
+      const targetBanner = banner.classList.contains('game-card-banner') ? banner : banner.querySelector('.game-card-banner');
+      if (!targetBanner) return;
+
+      let video = targetBanner.querySelector('.game-card-hover-video');
+      const videoSrc = targetBanner.dataset.video || (banner.dataset && banner.dataset.video);
+
+      if (!video && videoSrc) {
+        video = document.createElement('video');
+        video.className = 'game-card-hover-video';
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.innerHTML = `<source src="${videoSrc}" type="video/mp4">`;
+        targetBanner.appendChild(video);
+      }
+
+      if (video) {
+        if (video.paused) {
+          video.play().catch(() => {});
+        }
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      const banner = e.target.closest('.game-card-banner, .game-card');
+      if (!banner) return;
+
+      const targetBanner = banner.classList.contains('game-card-banner') ? banner : banner.querySelector('.game-card-banner');
+      if (!targetBanner) return;
+
+      const related = e.relatedTarget;
+      if (!related || !banner.contains(related)) {
+        const video = targetBanner.querySelector('.game-card-hover-video');
+        if (video && !video.paused) {
+          video.pause();
+          try { video.currentTime = 0; } catch (err) {}
+        }
+      }
+    });
+  }
+  initHoverVideoEngine();
+
 

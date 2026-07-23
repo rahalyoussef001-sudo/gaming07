@@ -119,33 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
   injectPromoBanner();
   injectPromoPopup();
 
-  // --- Theme Toggler ---
+  // --- Dark Mode Engine (Dark Only) ---
   const body = document.body;
-  const themeToggleBtn = document.getElementById('theme-toggle-btn');
-  
-  function initTheme() {
-    const savedTheme = localStorage.getItem('gaming07_theme');
-    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    
-    if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
-      body.classList.add('light-theme');
-      if (themeToggleBtn) themeToggleBtn.textContent = '🌙';
-    } else {
-      body.classList.remove('light-theme');
-      if (themeToggleBtn) themeToggleBtn.textContent = '☀';
-    }
-  }
-
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      body.classList.toggle('light-theme');
-      const isLight = body.classList.contains('light-theme');
-      localStorage.setItem('gaming07_theme', isLight ? 'light' : 'dark');
-      themeToggleBtn.textContent = isLight ? '🌙' : '☀';
-      showToast(`Switched to ${isLight ? 'light' : 'dark'} mode`);
-    });
-  }
-  initTheme();
+  body.classList.remove('light-theme');
+  try { localStorage.removeItem('gaming07_theme'); } catch (e) {}
 
   // --- GA4 Conversion & Event Analytics Engine ---
   function initGA4Tracking() {

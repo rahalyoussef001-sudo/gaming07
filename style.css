@@ -130,28 +130,29 @@ body.light-theme .bg-grid {
 
 /* Navbar */
 header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-  transition: background 0.4s ease, border-bottom 0.4s ease, box-shadow 0.4s ease;
-}
-
-body.home-page header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
-  background: linear-gradient(180deg, rgba(9, 9, 9, 0.75) 0%, rgba(9, 9, 9, 0.2) 75%, transparent 100%);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: none;
+  background: rgba(9, 9, 9, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+  transition: background 0.4s ease, border-bottom 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.light-theme header {
+  background: rgba(248, 250, 252, 0.75);
+}
+
+body:not(.home-page) {
+  padding-top: 80px;
+}
+
+.region-indicator {
+  display: none !important;
 }
 
 .nav-bar {

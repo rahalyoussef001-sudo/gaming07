@@ -310,14 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const isLocalReview = ['neverness-to-everness', 'arknights-endfield', 'once-human', 'where-winds-meet', 'raid-shadow-legends'].includes(o.id);
           const reviewLink = isLocalReview ? `articles/${o.id}` : `articles/review?game=${o.id}`;
 
-          const videoSources = o.video 
-            ? `<source src="${o.video}" type="video/mp4">
-               <source src="https://g07.nexrivium.com/NTE/Vid/20227-nte_bgvideo_20260418.mp4" type="video/mp4">
-               <source src="assets/20227-nte_bgvideo_20260418.mp4" type="video/mp4">
-               <source src="assets/nte_trailer.mp4" type="video/mp4">`
-            : '';
           const videoElement = o.video 
-            ? `<video class="carousel-bg-video" autoplay loop muted playsinline poster="${o.img}">${videoSources}</video>`
+            ? `<video class="carousel-bg-video" autoplay loop muted playsinline poster="${o.img}"><source src="${o.video}" type="video/mp4"></video>`
             : `<div class="carousel-bg" style="${bgStyle}"></div>`;
 
           slide.innerHTML = `

@@ -133,9 +133,9 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(9, 9, 9, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
   transition: background 0.4s ease, border-bottom 0.4s ease, box-shadow 0.4s ease;
@@ -539,7 +539,7 @@ header {
 .carousel-scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--bg-dark) 0%, rgba(9, 9, 9, 0.5) 50%, rgba(9, 9, 9, 0.8) 100%);
+  background: linear-gradient(to top, var(--bg-dark) 0%, rgba(9, 9, 9, 0.25) 50%, rgba(9, 9, 9, 0.35) 100%);
 }
 body.light-theme .carousel-scrim {
   background: linear-gradient(to top, var(--bg-dark) 0%, rgba(248, 250, 252, 0.5) 50%, rgba(248, 250, 252, 0.8) 100%);
@@ -2704,7 +2704,7 @@ body {
   transform: translate(-50%, -50%);
   object-fit: cover;
   z-index: 1;
-  filter: brightness(0.65) contrast(1.1);
+  filter: brightness(0.85) contrast(1.05);
   pointer-events: none;
 }
 

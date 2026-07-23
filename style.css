@@ -133,12 +133,25 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(9, 9, 9, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-color);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
   transition: background 0.4s ease, border-bottom 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.home-page header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: linear-gradient(180deg, rgba(9, 9, 9, 0.75) 0%, rgba(9, 9, 9, 0.2) 75%, transparent 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
 }
 
 .nav-bar {
@@ -501,7 +514,7 @@ header {
 /* Hero Carousel */
 .hero-carousel {
   position: relative;
-  height: 520px;
+  height: 600px;
   overflow: hidden;
   border-bottom: 1px solid var(--border-color);
   background-color: #050505;
@@ -555,7 +568,7 @@ body.light-theme .carousel-scrim {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 24px;
+  padding: 85px 24px 0;
   opacity: 0;
   transform: translateY(24px);
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;

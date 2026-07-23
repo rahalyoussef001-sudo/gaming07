@@ -151,7 +151,8 @@ body:not(.home-page) {
   padding-top: 80px;
 }
 
-.region-indicator {
+.region-indicator,
+.promo-banner {
   display: none !important;
 }
 

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 'tiles-survive', name: 'Tiles Survive', category: 'survival', platforms: 'Windows PC', rating: '★★★☆☆ 3.8', link: 'https://afb.nexirivium.com/5J0D/2J1A4/', offerId: '20114', img: 'assets/tiles_survive_bg.png', video: '', excerpt: 'Navigate rapidly collapsing platform grids, balance core resource systems, and test your split-second reflexes in this Windows simulator.', reviewText: '', featured: false }
   ];
 
-  const defaultBanner = { active: true, text: '🔥 SPECIAL EVENT: Global Partner Integration! Click here to download top RPGs for free.', link: '#games-section', style: 'purple-pink' };
+  const defaultBanner = { active: false, text: '', link: '', style: 'purple-pink' };
   const defaultPopup = { active: false, title: 'Limited Beta Invitation', text: 'Get direct developers alpha/beta download links for upcoming games like Neverness to Everness on Gaming07.', delay: 4, icon: '🔥', btnText: 'Claim Access', btnLink: 'https://afb.nexirivium.com/5J0D/2J2B7/' };
   
   const defaultPermissions = [
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Force clean outdated localStorage links and synchronize video properties
+  // Force clean outdated localStorage links, banners and synchronize video properties
   try {
     let storedOffers = safeGetJSON('gaming07_offers', defaultOffers);
     let updated = false;
@@ -60,44 +60,20 @@ document.addEventListener('DOMContentLoaded', () => {
       return (idxA === -1 ? 99 : idxA) - (idxB === -1 ? 99 : idxB);
     });
     localStorage.setItem('gaming07_offers', JSON.stringify(storedOffers));
+    localStorage.setItem('gaming07_banner', JSON.stringify({ active: false, text: '' }));
   } catch (e) {}
 
   // Ensure elements are pre-initialized in localStorage using safe helper
   safeGetJSON('gaming07_offers', defaultOffers);
-  safeGetJSON('gaming07_banner', defaultBanner);
+  safeGetJSON('gaming07_banner', { active: false, text: '' });
   safeGetJSON('gaming07_popup', defaultPopup);
   safeGetJSON('gaming07_permissions', defaultPermissions);
 
   // --- Dynamic Ad-Injections ---
   function injectPromoBanner() {
-    const bannerData = safeGetJSON('gaming07_banner', defaultBanner);
-    // Remove existing
     const existing = document.querySelector('.promo-banner');
     if (existing) existing.remove();
-
-    if (!bannerData || !bannerData.active) return;
-
-    const bannerEl = document.createElement('div');
-    bannerEl.className = 'promo-banner active';
-    if (bannerData.style === 'cyan-blue') {
-      bannerEl.style.background = 'linear-gradient(90deg, var(--accent-cyan), #2563eb)';
-    } else if (bannerData.style === 'emerald-green') {
-      bannerEl.style.background = 'var(--accent-emerald)';
-    } else if (bannerData.style === 'dark-gold') {
-      bannerEl.style.background = 'linear-gradient(90deg, #1e1b4b, #b45309)';
-    }
-
-    bannerEl.innerHTML = `
-      <span>${bannerData.text}</span>
-      ${bannerData.link ? `<a href="${bannerData.link}">Learn More &rarr;</a>` : ''}
-      <button class="promo-banner-close" aria-label="Close banner">✕</button>
-    `;
-
-    document.body.prepend(bannerEl);
-
-    bannerEl.querySelector('.promo-banner-close').addEventListener('click', () => {
-      bannerEl.style.display = 'none';
-    });
+    return;
   }
 
   function injectPromoPopup() {
